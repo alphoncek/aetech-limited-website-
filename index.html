@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ÆTeCH Limited — Tech Support Solutions, cybersecurity, networking, cloud, systems and remote technical support.">
+  <meta name="theme-color" content="#050b16">
+  <title>ÆTeCH Limited | Tech Support Solutions</title>
+  <link rel="icon" href="aetech-futuristic-banner.png">
+  <style>
+    :root{--bg:#030712;--panel:#081321;--cyan:#00d9ff;--blue:#287bff;--text:#edf7ff;--muted:#9eb4c8;--line:rgba(0,217,255,.22)}
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;background:radial-gradient(circle at 50% 0%,#0b2340 0,#030712 48%);color:var(--text);font-family:Inter,Segoe UI,Arial,sans-serif;line-height:1.6}
+    a{color:inherit;text-decoration:none}.wrap{width:min(1160px,92%);margin:auto}
+    nav{position:sticky;top:0;z-index:10;background:rgba(3,7,18,.82);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+    .navin{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{font-weight:900;letter-spacing:.16em;font-size:1.15rem}.brand span{color:var(--cyan)}
+    .links{display:flex;gap:22px;font-size:.92rem;color:#c8d8e6}.links a:hover{color:var(--cyan)}
+    .hero{padding:70px 0 30px;text-align:center}.hero h1{font-size:clamp(3rem,9vw,7rem);margin:0;letter-spacing:.08em;line-height:1;font-weight:950}
+    .hero h1 span{color:var(--cyan);text-shadow:0 0 28px rgba(0,217,255,.6)} .hero .limited{letter-spacing:.5em;color:#dce8f1;margin:10px 0 2px}
+    .tag{font-size:clamp(1rem,2.5vw,1.4rem);letter-spacing:.22em;color:#d9f8ff}.glow{color:var(--cyan)}
+    .hero-art{margin:35px auto 30px;border:1px solid var(--line);border-radius:24px;overflow:hidden;box-shadow:0 0 70px rgba(0,150,255,.14)}
+    .hero-art img{display:block;width:100%;height:auto}
+    .cta{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin:25px 0 10px}
+    .btn{padding:12px 20px;border-radius:999px;border:1px solid var(--cyan);font-weight:800;background:rgba(0,217,255,.09)}
+    .btn.primary{background:linear-gradient(90deg,#0879ff,#00d9ff);color:#00101b;border:0}
+    section{padding:62px 0}
+.search-section{padding:45px 0 25px}
+.search-shell{position:relative;display:flex;align-items:center;gap:10px;margin:25px 0 10px;padding:8px 10px 8px 18px;border:1px solid rgba(0,217,255,.5);border-radius:18px;background:linear-gradient(110deg,rgba(0,217,255,.09),rgba(7,18,35,.88));box-shadow:0 0 35px rgba(0,217,255,.09),inset 0 0 22px rgba(0,120,255,.06)}
+.search-shell:focus-within{border-color:#00eaff;box-shadow:0 0 42px rgba(0,217,255,.2),inset 0 0 30px rgba(0,217,255,.08)}
+.search-orb{font-size:2rem;line-height:1;color:var(--cyan);text-shadow:0 0 18px rgba(0,217,255,.75)}
+#siteSearch{width:100%;background:transparent;border:0;outline:0;color:#f2fbff;font-size:1rem;padding:13px 5px}
+#siteSearch::placeholder{color:#7290a5}
+#clearSearch{border:1px solid var(--line);border-radius:11px;background:rgba(0,217,255,.06);color:var(--cyan);padding:10px 12px;font-size:.7rem;font-weight:900;letter-spacing:.12em;cursor:pointer}
+.search-status{font-family:ui-monospace,monospace;color:#6f91a7;font-size:.78rem;min-height:24px}
+.search-results{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:10px}
+.result{padding:16px;border:1px solid var(--line);border-radius:14px;background:rgba(5,17,31,.8);animation:scanIn .2s ease}
+.result .rtype{color:var(--cyan);font-size:.68rem;font-weight:900;letter-spacing:.16em;text-transform:uppercase}
+.result h3{margin:5px 0;font-size:1rem}.result p{margin:0;color:var(--muted);font-size:.86rem}
+.result a{display:inline-block;margin-top:9px;color:var(--cyan);font-size:.8rem;font-weight:800}
+.quick-search{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:15px}
+.quick-search span{color:#607f94;font-size:.68rem;letter-spacing:.16em;font-weight:900;margin-right:4px}
+.quick-search button{border:1px solid var(--line);background:rgba(0,217,255,.04);color:#b9d4e5;border-radius:999px;padding:7px 11px;cursor:pointer;font-size:.76rem}
+.quick-search button:hover{border-color:var(--cyan);color:var(--cyan)}
+mark{background:rgba(0,217,255,.22);color:#fff;border-radius:3px;padding:0 2px}
+@keyframes scanIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+@media(max-width:850px){.search-results{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.search-results{grid-template-columns:1fr}.search-shell{padding-left:12px}.search-orb{font-size:1.7rem}}
+.eyebrow{color:var(--cyan);letter-spacing:.25em;font-size:.75rem;font-weight:900;text-transform:uppercase}
+    h2{font-size:clamp(2rem,4vw,3.2rem);margin:8px 0 15px}.lead{color:var(--muted);max-width:760px}
+    .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.card{background:linear-gradient(145deg,rgba(10,30,50,.9),rgba(5,12,24,.8));border:1px solid var(--line);border-radius:18px;padding:22px;min-height:180px}
+    .icon{font-size:1.8rem;color:var(--cyan)}.card h3{margin:8px 0}.card p{margin:0;color:var(--muted);font-size:.93rem}
+    .credentials{display:grid;grid-template-columns:1.1fr .9fr;gap:22px}.credential-list{display:grid;gap:12px}
+    .cred{display:flex;gap:14px;align-items:flex-start;border:1px solid var(--line);border-radius:16px;padding:17px;background:rgba(7,20,34,.65)}
+    .badge{min-width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:rgba(0,217,255,.1);border:1px solid var(--line);color:var(--cyan);font-weight:900}
+    .cred strong{display:block}.cred small{color:var(--muted)}
+    .profile{border:1px solid var(--line);border-radius:20px;padding:25px;background:linear-gradient(150deg,rgba(0,120,255,.1),rgba(0,217,255,.03))}
+    .profile h3{font-size:1.5rem;margin-top:0}.profile p{color:var(--muted)}
+    .contact{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.contact a,.contact .box{border:1px solid var(--line);padding:20px;border-radius:16px;background:rgba(7,20,34,.7)}
+    .label{color:var(--cyan);font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;font-weight:900}.value{font-size:1.08rem;font-weight:750;margin-top:5px}
+    footer{border-top:1px solid var(--line);padding:30px 0;color:#8098aa;text-align:center}
+    .fine{font-size:.78rem;color:#6e879a}.domain{font-family:ui-monospace,monospace;color:var(--cyan)}
+    @media(max-width:850px){.grid{grid-template-columns:repeat(2,1fr)}.credentials{grid-template-columns:1fr}.links{display:none}}
+    @media(max-width:560px){.grid,.contact{grid-template-columns:1fr}.hero{padding-top:45px}.hero h1{font-size:3.3rem}.tag{letter-spacing:.12em}}
+  </style>
+</head>
+<body>
+<nav><div class="wrap navin"><div class="brand">Æ<span>TeCH</span> <small>LIMITED</small></div>
+<div class="links"><a href="#search">Search</a><a href="#services">Services</a><a href="#credentials">Credentials</a><a href="#about">About</a><a href="#contact">Contact</a></div></div></nav>
+
+<main>
+<section class="hero wrap">
+  <div class="eyebrow">Future-ready technology support</div>
+  <h1>Æ<span>TeCH</span></h1>
+  <div class="limited">LIMITED</div>
+  <div class="tag">TECH SUPPORT SOLUTIONS</div>
+  <p class="lead" style="margin:18px auto 0">Empowering people. Optimizing technology. Securing the future.</p>
+  <div class="hero-art"><img src="aetech-futuristic-banner.png" alt="ÆTeCH Limited futuristic technology branding"></div>
+  <div class="cta"><a class="btn primary" href="tel:+254795963615">Call ÆTeCH</a><a class="btn" href="mailto:mwamachikwaru@gmail.com">Email Us</a><a class="btn" href="#credentials">View Credentials</a></div>
+</section>
+
+
+<section id="search" class="search-section">
+  <div class="wrap">
+    <div class="eyebrow">ÆTeCH Intelligence Interface</div>
+    <h2>Search the ÆTeCH ecosystem.</h2>
+    <p class="lead">Find services, credentials, technical capabilities and contact information instantly.</p>
+
+    <div class="search-shell">
+      <span class="search-orb">⌕</span>
+      <input id="siteSearch" type="search"
+        placeholder="Search services, AI, cybersecurity, networking, credentials..."
+        aria-label="Search ÆTeCH website">
+      <button id="clearSearch" type="button">CLEAR</button>
+    </div>
+    <div id="searchStatus" class="search-status">Type to activate the interface.</div>
+
+    <div id="searchResults" class="search-results" aria-live="polite"></div>
+
+    <div class="quick-search">
+      <span>QUICK ACCESS</span>
+      <button data-query="AI">AI</button>
+      <button data-query="Cybersecurity">Cybersecurity</button>
+      <button data-query="Networking">Networking</button>
+      <button data-query="Credentials">Credentials</button>
+      <button data-query="Contact">Contact</button>
+    </div>
+  </div>
+</section>
+
+<section id="services"><div class="wrap">
+  <div class="eyebrow">What we solve</div><h2>Technology, engineered around your needs.</h2>
+  <p class="lead">Practical technical support and digital infrastructure services for individuals, startups, professionals and growing organizations.</p>
+  <div class="grid" style="margin-top:25px">
+    <article class="card searchable" data-search="IT support help desk troubleshooting technical assistance"><div class="icon">◉</div><h3>IT Support</h3><p>Help desk, troubleshooting, device configuration and technical guidance.</p></article>
+    <article class="card searchable" data-search="cloud solutions deployment cloud support"><div class="icon">☁</div><h3>Cloud Solutions</h3><p>Cloud setup, deployment concepts, account configuration and support.</p></article>
+    <article class="card searchable" data-search="networking network setup connectivity management"><div class="icon">⌁</div><h3>Networking</h3><p>Network setup, connectivity troubleshooting, configuration and management support.</p></article>
+    <article class="card searchable" data-search="cybersecurity cyber security data protection security"><div class="icon">◇</div><h3>Cybersecurity</h3><p>Security awareness, defensive practices, data protection and system hardening guidance.</p></article>
+    <article class="card searchable" data-search="systems software installation configuration maintenance"><div class="icon">⚙</div><h3>Systems & Software</h3><p>Installation, configuration, maintenance and technical support.</p></article>
+    <article class="card searchable" data-search="remote support monitoring technical assistance"><div class="icon">▣</div><h3>Remote Support</h3><p>Remote troubleshooting, monitoring concepts and technical assistance.</p></article>
+    <article class="card searchable" data-search="AI artificial intelligence machine learning data analytics"><div class="icon">⌬</div><h3>AI & Data</h3><p>AI/ML and data-oriented technology support, learning and solution exploration.</p></article>
+    <article class="card searchable" data-search="tech consulting training technology guidance"><div class="icon">✦</div><h3>Tech Consulting</h3><p>Technology guidance, training, digital problem-solving and practical recommendations.</p></article>
+  </div>
+</div></section>
+
+<section id="credentials"><div class="wrap">
+  <div class="eyebrow">Professional profile</div><h2>Credentials & technical foundation</h2>
+  <div class="credentials">
+    <div class="credential-list">
+      <div class="cred"><div class="badge">AI</div><div><strong>Artificial Intelligence / AI Engineering Training</strong><small>AI, machine learning and data/analytics foundations.</small></div></div>
+      <div class="cred"><div class="badge">CY</div><div><strong>Cybersecurity Certification</strong><small>Cybersecurity knowledge and defensive technology practices.</small></div></div>
+      <div class="cred"><div class="badge">SE</div><div><strong>Software Engineering / Programming Studies</strong><small>Ongoing software development and programming education.</small></div></div>
+      <div class="cred"><div class="badge">ST</div><div><strong>Marine STCW Certificate</strong><small>Completed maritime safety and training certification.</small></div></div>
+    </div>
+    <aside class="profile">
+      <h3>Alphonce Kwaru</h3>
+      <p>Technology-focused professional building a multidisciplinary foundation across artificial intelligence, cybersecurity, programming and technical support.</p>
+      <p><strong>Focus:</strong> AI • Cybersecurity • IT Support • Networking • Data & Analytics • Software Technology</p>
+      <p class="fine">Credentials are presented as training/certification and study areas; individual roles should match verified experience and job requirements.</p>
+      <a class="btn" href="https://www.credly.com/users/alphonce-kwaru" target="_blank" rel="noopener">Open Credly Profile</a>
+    </aside>
+  </div>
+</div></section>
+
+<section id="about"><div class="wrap">
+  <div class="eyebrow">ÆTeCH Limited</div><h2>Built for the next layer of technology.</h2>
+  <p class="lead">ÆTeCH Limited is positioned as a technology support and solutions brand focused on dependable assistance, secure systems, modern infrastructure and practical technology adoption.</p>
+</div></section>
+
+<section id="contact"><div class="wrap">
+  <div class="eyebrow">Connect</div><h2>Let's build something reliable.</h2>
+  <div class="contact" style="margin-top:22px">
+    <a href="tel:+254795963615"><div class="label">Phone</div><div class="value">0795963615</div></a>
+    <a href="mailto:mwamachikwaru@gmail.com"><div class="label">Email</div><div class="value">mwamachikwaru@gmail.com</div></a>
+    <a href="https://www.linkedin.com/in/alphonce-kwaru/" target="_blank" rel="noopener"><div class="label">LinkedIn</div><div class="value">Alphonce Kwaru</div></a>
+    <a href="https://www.credly.com/users/alphonce-kwaru" target="_blank" rel="noopener"><div class="label">Credly</div><div class="value">Alphonce Kwaru</div></a>
+    <a href="https://github.com/alphoncek" target="_blank" rel="noopener"><div class="label">GitHub</div><div class="value">github.com/alphoncek</div></a>
+    <div class="box"><div class="label">Suggested domain</div><div class="value domain">aetechlimited.co.ke</div><div class="fine">Register after confirming availability.</div></div>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap">© 2026 ÆTeCH Limited • Tech Support Solutions<br><span class="fine">Empowering People. Optimizing Technology. Securing the Future.</span></div></footer>
+
+<script>
+const searchIndex = [
+  {type:"SERVICE", title:"IT Support & Help Desk", text:"Troubleshooting, device configuration and technical assistance.", href:"#services", keys:"it support help desk troubleshooting"},
+  {type:"SERVICE", title:"Cloud Solutions & Deployment", text:"Cloud setup, deployment concepts and support.", href:"#services", keys:"cloud solutions deployment"},
+  {type:"SERVICE", title:"Network Setup & Management", text:"Connectivity, network setup and management support.", href:"#services", keys:"network networking connectivity"},
+  {type:"SERVICE", title:"Cybersecurity & Data Protection", text:"Security awareness, defensive practices and data protection.", href:"#services", keys:"cybersecurity security data protection"},
+  {type:"SERVICE", title:"Systems & Software", text:"Installation, configuration and technical maintenance.", href:"#services", keys:"systems software installation"},
+  {type:"SERVICE", title:"Remote Support & Monitoring", text:"Remote troubleshooting and monitoring concepts.", href:"#services", keys:"remote support monitoring"},
+  {type:"SERVICE", title:"AI & Data", text:"AI/ML and data-oriented technology support and exploration.", href:"#services", keys:"ai artificial intelligence machine learning data analytics"},
+  {type:"SERVICE", title:"Technology Consulting", text:"Technology guidance, training and practical recommendations.", href:"#services", keys:"consulting training technology"},
+  {type:"CREDENTIAL", title:"Artificial Intelligence / AI Engineering Training", text:"AI, machine learning and data/analytics foundations.", href:"#credentials", keys:"ai artificial intelligence engineering machine learning credential certificate"},
+  {type:"CREDENTIAL", title:"Cybersecurity Certification", text:"Cybersecurity knowledge and defensive technology practices.", href:"#credentials", keys:"cybersecurity certificate credential security"},
+  {type:"CREDENTIAL", title:"Software Engineering / Programming Studies", text:"Ongoing software development and programming education.", href:"#credentials", keys:"software engineering programming studies"},
+  {type:"CREDENTIAL", title:"Marine STCW Certificate", text:"Completed maritime safety and training certification.", href:"#credentials", keys:"marine stcw certificate"},
+  {type:"PROFILE", title:"Alphonce Kwaru", text:"Technology-focused professional profile and multidisciplinary technical foundation.", href:"#credentials", keys:"alphonce kwaru profile"},
+  {type:"CONTACT", title:"Phone", text:"0795963615", href:"tel:+254795963615", keys:"phone contact call"},
+  {type:"CONTACT", title:"Email", text:"mwamachikwaru@gmail.com", href:"mailto:mwamachikwaru@gmail.com", keys:"email gmail contact"},
+  {type:"PROFILE", title:"LinkedIn", text:"Alphonce Kwaru", href:"https://www.linkedin.com/in/alphonce-kwaru/", keys:"linkedin professional profile"},
+  {type:"PROFILE", title:"Credly", text:"Alphonce Kwaru credentials profile", href:"https://www.credly.com/users/alphonce-kwaru", keys:"credly credentials badges"},
+  {type:"PROFILE", title:"GitHub", text:"alphoncek", href:"https://github.com/alphoncek", keys:"github projects code"},
+];
+
+const input = document.getElementById("siteSearch");
+const results = document.getElementById("searchResults");
+const status = document.getElementById("searchStatus");
+const clear = document.getElementById("clearSearch");
+
+function esc(s){return s.replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));}
+function highlight(s,q){
+  if(!q) return esc(s);
+  const parts=s.split(new RegExp("(" + q.replace(/[.*+?^${}()|[\]\\]/g,"\\$&") + ")","ig"));
+  return parts.map((p,i)=>i%2?`<mark>${esc(p)}</mark>`:esc(p)).join("");
+}
+function runSearch(q){
+  q=q.trim().toLowerCase();
+  if(!q){
+    results.innerHTML="";
+    status.textContent="Type to activate the interface • Try “AI”, “cybersecurity”, “networking” or “credentials”.";
+    return;
+  }
+  const terms=q.split(/\s+/);
+  const found=searchIndex.filter(x=>{
+    const hay=(x.title+" "+x.text+" "+x.keys).toLowerCase();
+    return terms.every(t=>hay.includes(t));
+  }).slice(0,9);
+  status.textContent=found.length ? `${found.length} result${found.length===1?"":"s"} detected • ÆTeCH search interface online.` : "No exact match found • Try a broader technology keyword.";
+  results.innerHTML=found.map(x=>`
+    <article class="result">
+      <div class="rtype">${esc(x.type)}</div>
+      <h3>${highlight(x.title,q)}</h3>
+      <p>${highlight(x.text,q)}</p>
+      <a href="${x.href}" ${x.href.startsWith("http")?"target='_blank' rel='noopener'":""}>Open →</a>
+    </article>`).join("");
+}
+input.addEventListener("input",e=>runSearch(e.target.value));
+clear.addEventListener("click",()=>{input.value="";runSearch("");input.focus();});
+document.querySelectorAll(".quick-search button").forEach(b=>{
+  b.addEventListener("click",()=>{
+    input.value=b.dataset.query;
+    runSearch(input.value);
+    document.getElementById("search").scrollIntoView({behavior:"smooth"});
+  });
+});
+</script>
+
+</body>
+</html>
