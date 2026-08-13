@@ -1,231 +1,112 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="ÆTeCH Limited — Tech Support Solutions, cybersecurity, networking, cloud, systems and remote technical support.">
-  <meta name="theme-color" content="#050b16">
-  <title>ÆTeCH Limited | Tech Support Solutions</title>
-  <link rel="icon" href="aetech-futuristic-banner.png">
-  <style>
-    :root{--bg:#030712;--panel:#081321;--cyan:#00d9ff;--blue:#287bff;--text:#edf7ff;--muted:#9eb4c8;--line:rgba(0,217,255,.22)}
-    *{box-sizing:border-box} html{scroll-behavior:smooth}
-    body{margin:0;background:radial-gradient(circle at 50% 0%,#0b2340 0,#030712 48%);color:var(--text);font-family:Inter,Segoe UI,Arial,sans-serif;line-height:1.6}
-    a{color:inherit;text-decoration:none}.wrap{width:min(1160px,92%);margin:auto}
-    nav{position:sticky;top:0;z-index:10;background:rgba(3,7,18,.82);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
-    .navin{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
-    .brand{font-weight:900;letter-spacing:.16em;font-size:1.15rem}.brand span{color:var(--cyan)}
-    .links{display:flex;gap:22px;font-size:.92rem;color:#c8d8e6}.links a:hover{color:var(--cyan)}
-    .hero{padding:70px 0 30px;text-align:center}.hero h1{font-size:clamp(3rem,9vw,7rem);margin:0;letter-spacing:.08em;line-height:1;font-weight:950}
-    .hero h1 span{color:var(--cyan);text-shadow:0 0 28px rgba(0,217,255,.6)} .hero .limited{letter-spacing:.5em;color:#dce8f1;margin:10px 0 2px}
-    .tag{font-size:clamp(1rem,2.5vw,1.4rem);letter-spacing:.22em;color:#d9f8ff}.glow{color:var(--cyan)}
-    .hero-art{margin:35px auto 30px;border:1px solid var(--line);border-radius:24px;overflow:hidden;box-shadow:0 0 70px rgba(0,150,255,.14)}
-    .hero-art img{display:block;width:100%;height:auto}
-    .cta{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin:25px 0 10px}
-    .btn{padding:12px 20px;border-radius:999px;border:1px solid var(--cyan);font-weight:800;background:rgba(0,217,255,.09)}
-    .btn.primary{background:linear-gradient(90deg,#0879ff,#00d9ff);color:#00101b;border:0}
-    section{padding:62px 0}
-.search-section{padding:45px 0 25px}
-.search-shell{position:relative;display:flex;align-items:center;gap:10px;margin:25px 0 10px;padding:8px 10px 8px 18px;border:1px solid rgba(0,217,255,.5);border-radius:18px;background:linear-gradient(110deg,rgba(0,217,255,.09),rgba(7,18,35,.88));box-shadow:0 0 35px rgba(0,217,255,.09),inset 0 0 22px rgba(0,120,255,.06)}
-.search-shell:focus-within{border-color:#00eaff;box-shadow:0 0 42px rgba(0,217,255,.2),inset 0 0 30px rgba(0,217,255,.08)}
-.search-orb{font-size:2rem;line-height:1;color:var(--cyan);text-shadow:0 0 18px rgba(0,217,255,.75)}
-#siteSearch{width:100%;background:transparent;border:0;outline:0;color:#f2fbff;font-size:1rem;padding:13px 5px}
-#siteSearch::placeholder{color:#7290a5}
-#clearSearch{border:1px solid var(--line);border-radius:11px;background:rgba(0,217,255,.06);color:var(--cyan);padding:10px 12px;font-size:.7rem;font-weight:900;letter-spacing:.12em;cursor:pointer}
-.search-status{font-family:ui-monospace,monospace;color:#6f91a7;font-size:.78rem;min-height:24px}
-.search-results{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:10px}
-.result{padding:16px;border:1px solid var(--line);border-radius:14px;background:rgba(5,17,31,.8);animation:scanIn .2s ease}
-.result .rtype{color:var(--cyan);font-size:.68rem;font-weight:900;letter-spacing:.16em;text-transform:uppercase}
-.result h3{margin:5px 0;font-size:1rem}.result p{margin:0;color:var(--muted);font-size:.86rem}
-.result a{display:inline-block;margin-top:9px;color:var(--cyan);font-size:.8rem;font-weight:800}
-.quick-search{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:15px}
-.quick-search span{color:#607f94;font-size:.68rem;letter-spacing:.16em;font-weight:900;margin-right:4px}
-.quick-search button{border:1px solid var(--line);background:rgba(0,217,255,.04);color:#b9d4e5;border-radius:999px;padding:7px 11px;cursor:pointer;font-size:.76rem}
-.quick-search button:hover{border-color:var(--cyan);color:var(--cyan)}
-mark{background:rgba(0,217,255,.22);color:#fff;border-radius:3px;padding:0 2px}
-@keyframes scanIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
-@media(max-width:850px){.search-results{grid-template-columns:1fr 1fr}}
-@media(max-width:560px){.search-results{grid-template-columns:1fr}.search-shell{padding-left:12px}.search-orb{font-size:1.7rem}}
-.eyebrow{color:var(--cyan);letter-spacing:.25em;font-size:.75rem;font-weight:900;text-transform:uppercase}
-    h2{font-size:clamp(2rem,4vw,3.2rem);margin:8px 0 15px}.lead{color:var(--muted);max-width:760px}
-    .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.card{background:linear-gradient(145deg,rgba(10,30,50,.9),rgba(5,12,24,.8));border:1px solid var(--line);border-radius:18px;padding:22px;min-height:180px}
-    .icon{font-size:1.8rem;color:var(--cyan)}.card h3{margin:8px 0}.card p{margin:0;color:var(--muted);font-size:.93rem}
-    .credentials{display:grid;grid-template-columns:1.1fr .9fr;gap:22px}.credential-list{display:grid;gap:12px}
-    .cred{display:flex;gap:14px;align-items:flex-start;border:1px solid var(--line);border-radius:16px;padding:17px;background:rgba(7,20,34,.65)}
-    .badge{min-width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:rgba(0,217,255,.1);border:1px solid var(--line);color:var(--cyan);font-weight:900}
-    .cred strong{display:block}.cred small{color:var(--muted)}
-    .profile{border:1px solid var(--line);border-radius:20px;padding:25px;background:linear-gradient(150deg,rgba(0,120,255,.1),rgba(0,217,255,.03))}
-    .profile h3{font-size:1.5rem;margin-top:0}.profile p{color:var(--muted)}
-    .contact{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.contact a,.contact .box{border:1px solid var(--line);padding:20px;border-radius:16px;background:rgba(7,20,34,.7)}
-    .label{color:var(--cyan);font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;font-weight:900}.value{font-size:1.08rem;font-weight:750;margin-top:5px}
-    footer{border-top:1px solid var(--line);padding:30px 0;color:#8098aa;text-align:center}
-    .fine{font-size:.78rem;color:#6e879a}.domain{font-family:ui-monospace,monospace;color:var(--cyan)}
-    @media(max-width:850px){.grid{grid-template-columns:repeat(2,1fr)}.credentials{grid-template-columns:1fr}.links{display:none}}
-    @media(max-width:560px){.grid,.contact{grid-template-columns:1fr}.hero{padding-top:45px}.hero h1{font-size:3.3rem}.tag{letter-spacing:.12em}}
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ÆTeCH Limited | AI • ML • Software • Cybersecurity • Technology Engineering</title>
+<meta name="description" content="ÆTeCH Limited — premium technology engineering and support solutions across Kenya. Artificial Intelligence, Machine Learning, Software Engineering, Cybersecurity, Cloud, Networks and IT support.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://alphoncek.github.io/aetech-limited-website/">
+<meta property="og:title" content="ÆTeCH Limited — Technology Engineered for What’s Next">
+<meta property="og:description" content="AI, Machine Learning, Software Engineering, Cybersecurity, Cloud, Networks and IT Support across Kenya.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#020712">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"TechnologyCompany","name":"ÆTeCH Limited","url":"https://alphoncek.github.io/aetech-limited-website/","telephone":"+254795963615","email":"mwamachikwaru@gmail.com","areaServed":{"@type":"Country","name":"Kenya"},"sameAs":["https://github.com/alphoncek","https://www.linkedin.com/in/alphonce-kwaru/","https://www.credly.com/users/alphonce-kwaru"],"serviceType":["Artificial Intelligence Engineering","Machine Learning Engineering","Software Engineering","Software Development","Cybersecurity","Cloud Solutions","Network Setup and Management","IT Support","Technology Consulting"]}
+</script>
 </head>
 <body>
-<nav><div class="wrap navin"><div class="brand">Æ<span>TeCH</span> <small>LIMITED</small></div>
-<div class="links"><a href="#search">Search</a><a href="#services">Services</a><a href="#credentials">Credentials</a><a href="#about">About</a><a href="#contact">Contact</a></div></div></nav>
+<div class="ambient a"></div><div class="ambient b"></div><div class="grid"></div><div class="scan"></div>
 
-<main>
-<section class="hero wrap">
-  <div class="eyebrow">Future-ready technology support</div>
-  <h1>Æ<span>TeCH</span></h1>
-  <div class="limited">LIMITED</div>
-  <div class="tag">TECH SUPPORT SOLUTIONS</div>
-  <p class="lead" style="margin:18px auto 0">Empowering people. Optimizing technology. Securing the future.</p>
-  <div class="hero-art"><img src="aetech-futuristic-banner.png" alt="ÆTeCH Limited futuristic technology branding"></div>
-  <div class="cta"><a class="btn primary" href="tel:+254795963615">Call ÆTeCH</a><a class="btn" href="mailto:mwamachikwaru@gmail.com">Email Us</a><a class="btn" href="#credentials">View Credentials</a></div>
-</section>
+<header>
+  <div class="nav shell">
+    <a href="#home" class="logo"><span class="ae">Æ</span><span>TeCH <i>LIMITED</i></span></a>
+    <button class="menu" aria-label="Open menu">☰</button>
+    <nav>
+      <a href="#services">Services</a><a href="#engineering">Engineering</a><a href="#why">Why ÆTeCH</a><a href="#contact">Contact</a>
+      <a class="pill" href="#contact">Start a project <b>↗</b></a>
+    </nav>
+  </div>
+</header>
 
-
-<section id="search" class="search-section">
-  <div class="wrap">
-    <div class="eyebrow">ÆTeCH Intelligence Interface</div>
-    <h2>Search the ÆTeCH ecosystem.</h2>
-    <p class="lead">Find services, credentials, technical capabilities and contact information instantly.</p>
-
-    <div class="search-shell">
-      <span class="search-orb">⌕</span>
-      <input id="siteSearch" type="search"
-        placeholder="Search services, AI, cybersecurity, networking, credentials..."
-        aria-label="Search ÆTeCH website">
-      <button id="clearSearch" type="button">CLEAR</button>
-    </div>
-    <div id="searchStatus" class="search-status">Type to activate the interface.</div>
-
-    <div id="searchResults" class="search-results" aria-live="polite"></div>
-
-    <div class="quick-search">
-      <span>QUICK ACCESS</span>
-      <button data-query="AI">AI</button>
-      <button data-query="Cybersecurity">Cybersecurity</button>
-      <button data-query="Networking">Networking</button>
-      <button data-query="Credentials">Credentials</button>
-      <button data-query="Contact">Contact</button>
+<main id="home">
+<section class="hero shell">
+  <div class="hero-left">
+    <div class="tag"><span></span> KENYA • TECHNOLOGY ENGINEERING</div>
+    <h1>Technology that<br><strong>thinks. builds. protects.</strong></h1>
+    <p class="intro">ÆTeCH Limited brings Artificial Intelligence, Machine Learning, software engineering, cybersecurity and modern IT infrastructure together into practical technology solutions.</p>
+    <div class="buttons"><a class="primary" href="#contact">Talk to ÆTeCH <span>→</span></a><a class="secondary" href="#services">Explore services</a></div>
+    <div class="proof"><div><b>AI</b><span>Intelligent systems</span></div><div><b>ML</b><span>Data-driven models</span></div><div><b>DEV</b><span>Software engineering</span></div><div><b>SEC</b><span>Security-minded IT</span></div></div>
+  </div>
+  <div class="hero-right">
+    <div class="holo">
+      <div class="holo-head"><span>ÆTeCH / CORE</span><span>ONLINE ●</span></div>
+      <div class="rings"><i></i><i></i><i></i><div class="center"><b>Æ</b><small>ENGINEERING</small></div><label class="p p1">AI</label><label class="p p2">ML</label><label class="p p3">CODE</label><label class="p p4">SEC</label></div>
+      <div class="metrics"><span>INTELLIGENCE <b>●</b></span><span>SECURITY <b>●</b></span><span>INFRASTRUCTURE <b>●</b></span></div>
     </div>
   </div>
 </section>
 
-<section id="services"><div class="wrap">
-  <div class="eyebrow">What we solve</div><h2>Technology, engineered around your needs.</h2>
-  <p class="lead">Practical technical support and digital infrastructure services for individuals, startups, professionals and growing organizations.</p>
-  <div class="grid" style="margin-top:25px">
-    <article class="card searchable" data-search="IT support help desk troubleshooting technical assistance"><div class="icon">◉</div><h3>IT Support</h3><p>Help desk, troubleshooting, device configuration and technical guidance.</p></article>
-    <article class="card searchable" data-search="cloud solutions deployment cloud support"><div class="icon">☁</div><h3>Cloud Solutions</h3><p>Cloud setup, deployment concepts, account configuration and support.</p></article>
-    <article class="card searchable" data-search="networking network setup connectivity management"><div class="icon">⌁</div><h3>Networking</h3><p>Network setup, connectivity troubleshooting, configuration and management support.</p></article>
-    <article class="card searchable" data-search="cybersecurity cyber security data protection security"><div class="icon">◇</div><h3>Cybersecurity</h3><p>Security awareness, defensive practices, data protection and system hardening guidance.</p></article>
-    <article class="card searchable" data-search="systems software installation configuration maintenance"><div class="icon">⚙</div><h3>Systems & Software</h3><p>Installation, configuration, maintenance and technical support.</p></article>
-    <article class="card searchable" data-search="remote support monitoring technical assistance"><div class="icon">▣</div><h3>Remote Support</h3><p>Remote troubleshooting, monitoring concepts and technical assistance.</p></article>
-    <article class="card searchable" data-search="AI artificial intelligence machine learning data analytics"><div class="icon">⌬</div><h3>AI & Data</h3><p>AI/ML and data-oriented technology support, learning and solution exploration.</p></article>
-    <article class="card searchable" data-search="tech consulting training technology guidance"><div class="icon">✦</div><h3>Tech Consulting</h3><p>Technology guidance, training, digital problem-solving and practical recommendations.</p></article>
-  </div>
-</div></section>
+<div class="signal"><span>ARTIFICIAL INTELLIGENCE</span><i>✦</i><span>MACHINE LEARNING</span><i>✦</i><span>SOFTWARE ENGINEERING</span><i>✦</i><span>CYBERSECURITY</span><i>✦</i><span>CLOUD & NETWORKS</span></div>
 
-<section id="credentials"><div class="wrap">
-  <div class="eyebrow">Professional profile</div><h2>Credentials & technical foundation</h2>
-  <div class="credentials">
-    <div class="credential-list">
-      <div class="cred"><div class="badge">AI</div><div><strong>Artificial Intelligence / AI Engineering Training</strong><small>AI, machine learning and data/analytics foundations.</small></div></div>
-      <div class="cred"><div class="badge">CY</div><div><strong>Cybersecurity Certification</strong><small>Cybersecurity knowledge and defensive technology practices.</small></div></div>
-      <div class="cred"><div class="badge">SE</div><div><strong>Software Engineering / Programming Studies</strong><small>Ongoing software development and programming education.</small></div></div>
-      <div class="cred"><div class="badge">ST</div><div><strong>Marine STCW Certificate</strong><small>Completed maritime safety and training certification.</small></div></div>
+<section id="services" class="section shell">
+  <div class="heading"><div><small>01 / CAPABILITIES</small><h2>Built around your<br><em>technology reality.</em></h2></div><p>Not every technology challenge needs the same answer. ÆTeCH combines engineering disciplines to deliver the right technical direction.</p></div>
+  <div class="services">
+    <article class="service hero-service"><div class="num">01</div><div class="glyph">✦</div><small>INTELLIGENCE</small><h3>Artificial Intelligence Engineering</h3><p>Practical AI solution design, intelligent workflows, AI-enabled applications and automation.</p><ul><li>AI solution architecture</li><li>Intelligent automation</li><li>AI workflow engineering</li><li>Application integration</li></ul><a href="#contact">Discuss AI →</a></article>
+    <article class="service"><div class="num">02</div><div class="glyph">◈</div><small>MODELS</small><h3>Machine Learning Engineering</h3><p>Data-driven workflows for analysis, model development, evaluation and intelligent decision support.</p><a href="#contact">Discuss ML →</a></article>
+    <article class="service"><div class="num">03</div><div class="glyph">⌘</div><small>SOFTWARE</small><h3>Software Engineering & Development</h3><p>Websites, web applications, business systems, APIs, integrations and software maintenance.</p><a href="#contact">Build software →</a></article>
+    <article class="service"><div class="num">04</div><div class="glyph">◇</div><small>SECURITY</small><h3>Cybersecurity & Data Protection</h3><p>Security-conscious technical support, awareness, hardening guidance and data protection practices.</p><a href="#contact">Secure systems →</a></article>
+    <article class="service"><div class="num">05</div><div class="glyph">☁</div><small>INFRASTRUCTURE</small><h3>Cloud & Network Engineering</h3><p>Cloud deployment support, connectivity, network setup, troubleshooting and infrastructure guidance.</p><a href="#contact">Plan infrastructure →</a></article>
+    <article class="service"><div class="num">06</div><div class="glyph">◉</div><small>OPERATIONS</small><h3>IT Support & Technology Consulting</h3><p>Help desk, remote support, monitoring, systems, software installation and technical consulting.</p><a href="#contact">Get support →</a></article>
+  </div>
+</section>
+
+<section id="engineering" class="engineering">
+  <div class="shell engineering-grid">
+    <div class="console">
+      <div class="console-top"><span>ÆTeCH ENGINEERING CONSOLE</span><b>LIVE</b></div>
+      <div class="console-body">
+        <div class="terminal-line"><span>01</span><code>initialize technology_stack</code></div>
+        <div class="terminal-line"><span>02</span><code>analyse <b>business_problem</b></code></div>
+        <div class="terminal-line"><span>03</span><code>design <b>solution_architecture</b></code></div>
+        <div class="terminal-line"><span>04</span><code>build <b>secure_system</b></code></div>
+        <div class="terminal-line"><span>05</span><code>deploy <b>support</b></code></div>
+        <div class="status"><span>● SYSTEM READY</span><span>KENYA-WIDE ACCESS</span></div>
+      </div>
     </div>
-    <aside class="profile">
-      <h3>Alphonce Kwaru</h3>
-      <p>Technology-focused professional building a multidisciplinary foundation across artificial intelligence, cybersecurity, programming and technical support.</p>
-      <p><strong>Focus:</strong> AI • Cybersecurity • IT Support • Networking • Data & Analytics • Software Technology</p>
-      <p class="fine">Credentials are presented as training/certification and study areas; individual roles should match verified experience and job requirements.</p>
-      <a class="btn" href="https://www.credly.com/users/alphonce-kwaru" target="_blank" rel="noopener">Open Credly Profile</a>
-    </aside>
+    <div>
+      <div class="tag"><span></span> ENGINEERING APPROACH</div>
+      <h2>One technology partner.<br><em>Many technical disciplines.</em></h2>
+      <p class="copy">Technology problems cross boundaries. Software touches data. AI touches infrastructure. Security touches everything. ÆTeCH is designed around that reality.</p>
+      <div class="steps"><div><b>01</b><strong>Discover</strong><p>Understand the requirement and environment.</p></div><div><b>02</b><strong>Design</strong><p>Turn the problem into a practical architecture.</p></div><div><b>03</b><strong>Engineer</strong><p>Build, configure and integrate the solution.</p></div><div><b>04</b><strong>Support</strong><p>Maintain, improve and support what was delivered.</p></div></div>
+    </div>
   </div>
-</div></section>
+</section>
 
-<section id="about"><div class="wrap">
-  <div class="eyebrow">ÆTeCH Limited</div><h2>Built for the next layer of technology.</h2>
-  <p class="lead">ÆTeCH Limited is positioned as a technology support and solutions brand focused on dependable assistance, secure systems, modern infrastructure and practical technology adoption.</p>
-</div></section>
-
-<section id="contact"><div class="wrap">
-  <div class="eyebrow">Connect</div><h2>Let's build something reliable.</h2>
-  <div class="contact" style="margin-top:22px">
-    <a href="tel:+254795963615"><div class="label">Phone</div><div class="value">0795963615</div></a>
-    <a href="mailto:mwamachikwaru@gmail.com"><div class="label">Email</div><div class="value">mwamachikwaru@gmail.com</div></a>
-    <a href="https://www.linkedin.com/in/alphonce-kwaru/" target="_blank" rel="noopener"><div class="label">LinkedIn</div><div class="value">Alphonce Kwaru</div></a>
-    <a href="https://www.credly.com/users/alphonce-kwaru" target="_blank" rel="noopener"><div class="label">Credly</div><div class="value">Alphonce Kwaru</div></a>
-    <a href="https://github.com/alphoncek" target="_blank" rel="noopener"><div class="label">GitHub</div><div class="value">github.com/alphoncek</div></a>
-    <div class="box"><div class="label">Suggested domain</div><div class="value domain">aetechlimited.co.ke</div><div class="fine">Register after confirming availability.</div></div>
+<section id="why" class="section shell why">
+  <div class="heading centered"><div><small>02 / WHY ÆTeCH</small><h2>Premium thinking.<br><em>Practical execution.</em></h2></div><p>ÆTeCH is positioned to serve individuals, startups, businesses and organisations that need dependable technology without unnecessary complexity.</p></div>
+  <div class="why-grid">
+    <div><span>01</span><h3>Engineering-led</h3><p>Solutions are approached as systems to understand, design, build and support — not just products to sell.</p></div>
+    <div><span>02</span><h3>Security-aware</h3><p>Security and data protection are considered alongside technology delivery rather than treated as an afterthought.</p></div>
+    <div><span>03</span><h3>Human support</h3><p>Technology should remain accessible. Remote assistance and practical guidance are part of the experience.</p></div>
+    <div><span>04</span><h3>Kenya-wide</h3><p>Start from anywhere in Kenya. Digital consultations can begin online, with on-site arrangements where appropriate.</p></div>
   </div>
-</div></section>
+</section>
+
+<section class="kenya"><div class="shell kenya-inner"><div><small>03 / REACH</small><h2>From your location<br><em>to the technology.</em></h2></div><div class="mapbox"><div class="map-lines"></div><div class="pin">Æ</div><div class="map-label">KENYA<br><small>REMOTE + ON-SITE</small></div><div class="cities"><span>MOMBASA</span><span>NAIROBI</span><span>KISUMU</span><span>NAKURU</span><span>ELDORET</span><span>KENYA-WIDE</span></div></div></div></section>
+
+<section id="contact" class="contact section">
+  <div class="shell contact-grid">
+    <div><div class="tag"><span></span> 04 / CONNECT</div><h2>Let’s build something<br><em>remarkable.</em></h2><p class="copy">Have a technology problem, product idea, security concern or support requirement? Start the conversation from anywhere in Kenya.</p><div class="contact-list"><a href="tel:+254795963615"><small>PHONE</small><b>0795 963 615</b><span>Call ÆTeCH</span></a><a href="mailto:mwamachikwaru@gmail.com"><small>EMAIL</small><b>mwamachikwaru@gmail.com</b><span>Send an enquiry</span></a><a href="https://wa.me/254795963615" target="_blank" rel="noopener"><small>WHATSAPP</small><b>Start a direct conversation</b><span>Open WhatsApp</span></a></div></div>
+    <form id="form"><div class="form-head"><span>PROJECT / SUPPORT INTAKE</span><b>ÆTeCH</b></div><label>Name<input id="name" required placeholder="Your name"></label><label>County / town<input id="place" required placeholder="Where are you located?"></label><label>Requirement<select id="service" required><option value="">Select a service</option><option>Artificial Intelligence Engineering</option><option>Machine Learning Engineering</option><option>Software Engineering & Development</option><option>Cybersecurity & Data Protection</option><option>Cloud & Network Engineering</option><option>IT Support & Technology Consulting</option><option>Training & Digital Support</option></select></label><label>Details<textarea id="details" required rows="6" placeholder="Tell us what you want to build, secure, analyse, automate or fix."></textarea></label><button class="primary" type="submit">Continue to WhatsApp <span>↗</span></button><div id="status"></div></form>
+  </div>
+</section>
 </main>
 
-<footer><div class="wrap">© 2026 ÆTeCH Limited • Tech Support Solutions<br><span class="fine">Empowering People. Optimizing Technology. Securing the Future.</span></div></footer>
-
-<script>
-const searchIndex = [
-  {type:"SERVICE", title:"IT Support & Help Desk", text:"Troubleshooting, device configuration and technical assistance.", href:"#services", keys:"it support help desk troubleshooting"},
-  {type:"SERVICE", title:"Cloud Solutions & Deployment", text:"Cloud setup, deployment concepts and support.", href:"#services", keys:"cloud solutions deployment"},
-  {type:"SERVICE", title:"Network Setup & Management", text:"Connectivity, network setup and management support.", href:"#services", keys:"network networking connectivity"},
-  {type:"SERVICE", title:"Cybersecurity & Data Protection", text:"Security awareness, defensive practices and data protection.", href:"#services", keys:"cybersecurity security data protection"},
-  {type:"SERVICE", title:"Systems & Software", text:"Installation, configuration and technical maintenance.", href:"#services", keys:"systems software installation"},
-  {type:"SERVICE", title:"Remote Support & Monitoring", text:"Remote troubleshooting and monitoring concepts.", href:"#services", keys:"remote support monitoring"},
-  {type:"SERVICE", title:"AI & Data", text:"AI/ML and data-oriented technology support and exploration.", href:"#services", keys:"ai artificial intelligence machine learning data analytics"},
-  {type:"SERVICE", title:"Technology Consulting", text:"Technology guidance, training and practical recommendations.", href:"#services", keys:"consulting training technology"},
-  {type:"CREDENTIAL", title:"Artificial Intelligence / AI Engineering Training", text:"AI, machine learning and data/analytics foundations.", href:"#credentials", keys:"ai artificial intelligence engineering machine learning credential certificate"},
-  {type:"CREDENTIAL", title:"Cybersecurity Certification", text:"Cybersecurity knowledge and defensive technology practices.", href:"#credentials", keys:"cybersecurity certificate credential security"},
-  {type:"CREDENTIAL", title:"Software Engineering / Programming Studies", text:"Ongoing software development and programming education.", href:"#credentials", keys:"software engineering programming studies"},
-  {type:"CREDENTIAL", title:"Marine STCW Certificate", text:"Completed maritime safety and training certification.", href:"#credentials", keys:"marine stcw certificate"},
-  {type:"PROFILE", title:"Alphonce Kwaru", text:"Technology-focused professional profile and multidisciplinary technical foundation.", href:"#credentials", keys:"alphonce kwaru profile"},
-  {type:"CONTACT", title:"Phone", text:"0795963615", href:"tel:+254795963615", keys:"phone contact call"},
-  {type:"CONTACT", title:"Email", text:"mwamachikwaru@gmail.com", href:"mailto:mwamachikwaru@gmail.com", keys:"email gmail contact"},
-  {type:"PROFILE", title:"LinkedIn", text:"Alphonce Kwaru", href:"https://www.linkedin.com/in/alphonce-kwaru/", keys:"linkedin professional profile"},
-  {type:"PROFILE", title:"Credly", text:"Alphonce Kwaru credentials profile", href:"https://www.credly.com/users/alphonce-kwaru", keys:"credly credentials badges"},
-  {type:"PROFILE", title:"GitHub", text:"alphoncek", href:"https://github.com/alphoncek", keys:"github projects code"},
-];
-
-const input = document.getElementById("siteSearch");
-const results = document.getElementById("searchResults");
-const status = document.getElementById("searchStatus");
-const clear = document.getElementById("clearSearch");
-
-function esc(s){return s.replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));}
-function highlight(s,q){
-  if(!q) return esc(s);
-  const parts=s.split(new RegExp("(" + q.replace(/[.*+?^${}()|[\]\\]/g,"\\$&") + ")","ig"));
-  return parts.map((p,i)=>i%2?`<mark>${esc(p)}</mark>`:esc(p)).join("");
-}
-function runSearch(q){
-  q=q.trim().toLowerCase();
-  if(!q){
-    results.innerHTML="";
-    status.textContent="Type to activate the interface • Try “AI”, “cybersecurity”, “networking” or “credentials”.";
-    return;
-  }
-  const terms=q.split(/\s+/);
-  const found=searchIndex.filter(x=>{
-    const hay=(x.title+" "+x.text+" "+x.keys).toLowerCase();
-    return terms.every(t=>hay.includes(t));
-  }).slice(0,9);
-  status.textContent=found.length ? `${found.length} result${found.length===1?"":"s"} detected • ÆTeCH search interface online.` : "No exact match found • Try a broader technology keyword.";
-  results.innerHTML=found.map(x=>`
-    <article class="result">
-      <div class="rtype">${esc(x.type)}</div>
-      <h3>${highlight(x.title,q)}</h3>
-      <p>${highlight(x.text,q)}</p>
-      <a href="${x.href}" ${x.href.startsWith("http")?"target='_blank' rel='noopener'":""}>Open →</a>
-    </article>`).join("");
-}
-input.addEventListener("input",e=>runSearch(e.target.value));
-clear.addEventListener("click",()=>{input.value="";runSearch("");input.focus();});
-document.querySelectorAll(".quick-search button").forEach(b=>{
-  b.addEventListener("click",()=>{
-    input.value=b.dataset.query;
-    runSearch(input.value);
-    document.getElementById("search").scrollIntoView({behavior:"smooth"});
-  });
-});
-</script>
-
-</body>
-</html>
+<footer><div class="shell footer-grid"><div><a class="logo" href="#home"><span class="ae">Æ</span><span>TeCH <i>LIMITED</i></span></a><p>Technology Engineering & Support Solutions.<br>Kenya-wide • Remote & On-site.</p></div><div><small>SERVICES</small><a href="#services">AI Engineering</a><a href="#services">ML Engineering</a><a href="#services">Software Engineering</a><a href="#services">Cybersecurity</a></div><div><small>NETWORK</small><a href="https://github.com/alphoncek" target="_blank">GitHub</a><a href="https://www.linkedin.com/in/alphonce-kwaru/" target="_blank">LinkedIn</a><a href="https://www.credly.com/users/alphonce-kwaru" target="_blank">Credly</a></div><div><small>CONTACT</small><a href="tel:+254795963615">0795 963 615</a><a href="mailto:mwamachikwaru@gmail.com">mwamachikwaru@gmail.com</a><span>Kenya</span></div></div><div class="copyright"><div class="shell"><span>© <span id="year"></span> ÆTeCH Limited</span><span>INTELLIGENT TECHNOLOGY / ENGINEERED FOR WHAT’S NEXT.</span></div></div></footer>
+<script src="script.js"></script>
+</body></html>

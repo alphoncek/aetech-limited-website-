@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://alphoncek.github.io/aetech-limited-website/sitemap.xml
