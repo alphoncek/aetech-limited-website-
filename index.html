@@ -1,31 +1,811 @@
-<!doctype html>
-<html lang="en-KE">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#06101d">
-<meta name="description" content="ÆTeCH Limited Company — AI, software, cybersecurity, cloud and remote technology services from Mombasa, Kenya.">
-<title>ÆTeCH Global Connectivity | ÆTeCH Limited</title>
-<style>
-:root{color-scheme:dark;--bg:#06101d;--panel:#0b1b2d;--line:#16445a;--cyan:#00e5ff;--mint:#6dffc8;--text:#effaff;--muted:#a7bdce}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 50% -10%,#123b56 0,transparent 48%),linear-gradient(160deg,#040912,#071625 55%,#030810);color:var(--text);font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif}a{color:var(--cyan);text-decoration:none}a:hover{text-decoration:underline;color:#fff}.wrap{width:min(1050px,calc(100% - 32px));margin:auto}.nav{position:sticky;top:0;z-index:5;background:#050c16eF;border-bottom:1px solid #16445a;backdrop-filter:blur(15px)}.navin{min-height:70px;display:flex;align-items:center;justify-content:space-between;gap:14px}.brand{font-weight:900;letter-spacing:.18em;color:var(--cyan)}.brand small{display:block;color:var(--muted);font-size:.62rem;letter-spacing:.25em}.pill{border:1px solid var(--cyan);border-radius:10px;padding:9px 13px;font-weight:700}.hero{padding:60px 0 38px}.eyebrow{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mint);font-weight:800}.hero h1{font-size:clamp(2.1rem,6vw,4.6rem);line-height:1.04;letter-spacing:-.04em;margin:12px 0}.hero p,.muted{color:var(--muted);max-width:750px}.glow{color:var(--cyan);text-shadow:0 0 24px #00e5ff55}.panel{background:linear-gradient(145deg,#0b1b2deF,#071321f2);border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:0 15px 50px #0003}.clocks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:22px 0}.clock{border:1px solid #1b5164;border-radius:16px;padding:18px;background:radial-gradient(circle at 100% 0,#00e5ff15,transparent 50%),#071421}.clocktop{display:flex;align-items:center;gap:10px;color:var(--muted);font-weight:750}.flag{font-size:1.8rem}.time{font:clamp(1.7rem,5vw,2.8rem)/1.2 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.03em;color:var(--mint);margin:12px 0 5px}.date{color:#e2f3ff;font-size:.9rem}.zone{font-size:.75rem;color:var(--muted);margin-top:8px}.section{padding:28px 0}.section h2{font-size:clamp(1.55rem,4vw,2.35rem);line-height:1.15;margin:0 0 10px}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:18px}.tile{border:1px solid var(--line);background:#081726;border-radius:14px;padding:16px;min-width:0}.tile h3{margin:6px 0;font-size:1rem}.tile p{margin:0;color:var(--muted);font-size:.88rem}.country-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin-top:18px}.country{display:flex;align-items:center;gap:9px;border:1px solid #174054;background:#071421;border-radius:11px;padding:11px;font-size:.88rem}.country span{font-size:1.35rem}.network{position:relative;overflow:hidden;min-height:245px;background:radial-gradient(circle at center,#0c3247,#06101d 70%);border:1px solid #16445a;border-radius:18px;margin-top:18px;display:grid;place-items:center}.network:before,.network:after{content:"";position:absolute;border:1px solid #00e5ff35;border-radius:50%;width:230px;height:230px;animation:orbit 18s linear infinite}.network:after{width:165px;height:165px;animation-direction:reverse;animation-duration:12s}.orb{position:relative;z-index:1;width:100px;height:100px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 30% 25%,#6fffff,#087e9b 45%,#071421 75%);box-shadow:0 0 42px #00e5ff55;font-size:2.4rem}.node{position:absolute;z-index:2;font-size:1.5rem;animation:pulse 2.8s ease-in-out infinite}.n1{top:16%;left:18%}.n2{top:22%;right:18%;animation-delay:.5s}.n3{bottom:17%;left:22%;animation-delay:1s}.n4{bottom:14%;right:22%;animation-delay:1.5s}.contact a{overflow-wrap:anywhere}.contactline{margin:9px 0}.notice{font-size:.8rem;color:var(--muted);border-left:2px solid #d5b45a;padding-left:12px;margin-top:16px}.footer{border-top:1px solid var(--line);margin-top:35px;padding:24px 0;color:var(--muted);font-size:.82rem}.live-dot{display:inline-block;width:8px;height:8px;background:var(--mint);border-radius:50%;margin-right:7px;box-shadow:0 0 10px var(--mint)}@keyframes orbit{to{transform:rotate(360deg)}}@keyframes pulse{50%{filter:drop-shadow(0 0 12px #00e5ff);transform:scale(1.12)}}@media(max-width:700px){.clocks{grid-template-columns:1fr}.grid{grid-template-columns:1fr 1fr}.country-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{padding-top:42px}}@media(max-width:420px){.grid{grid-template-columns:1fr}.panel{padding:15px}.navin{min-height:62px}}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ÆTeCH | Intelligent Future Technologies</title>
+  <meta name="description" content="ÆTeCH Limited Company and ÆTeCH Artificial Intelligence Software System Company - futuristic intelligent digital solutions and AI-powered innovation." />
+  <style>
+    :root {
+      --bg: #060914;
+      --bg2: #0d1324;
+      --card: rgba(255,255,255,0.06);
+      --card-border: rgba(255,255,255,0.12);
+      --text: #eaf2ff;
+      --muted: #9fb3d9;
+      --primary: #5ce1e6;
+      --secondary: #7b61ff;
+      --accent: #00ffc6;
+      --danger: #ff6b81;
+      --shadow: 0 10px 40px rgba(0,0,0,0.35);
+      --glow: 0 0 30px rgba(92,225,230,0.25);
+      --radius: 20px;
+      --max: 1200px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(123,97,255,0.18), transparent 28%),
+        radial-gradient(circle at top right, rgba(92,225,230,0.14), transparent 30%),
+        linear-gradient(180deg, #04070f 0%, #09111f 45%, #050812 100%);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+      opacity: 0.15;
+      z-index: 0;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(92%, var(--max));
+      margin: auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(14px);
+      background: rgba(3, 8, 20, 0.75);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+      gap: 16px;
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+      color: #fff;
+    }
+
+    .logo span {
+      color: var(--primary);
+      text-shadow: 0 0 15px rgba(92,225,230,0.35);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.95rem;
+      transition: 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 22px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: linear-gradient(135deg, rgba(92,225,230,0.15), rgba(123,97,255,0.12));
+      color: #fff;
+      font-weight: bold;
+      box-shadow: var(--glow);
+      transition: 0.3s ease;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 35px rgba(92,225,230,0.35);
+    }
+
+    .btn.primary {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: #08111f;
+      border: none;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 95vh;
+      display: flex;
+      align-items: center;
+      padding: 90px 0 60px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 8px 14px;
+      border: 1px solid rgba(92,225,230,0.25);
+      border-radius: 999px;
+      color: var(--primary);
+      background: rgba(92,225,230,0.06);
+      margin-bottom: 18px;
+      font-size: 0.9rem;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 6vw, 5rem);
+      line-height: 1.05;
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1.08rem;
+      max-width: 680px;
+      margin-bottom: 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 520px;
+      border-radius: 30px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background:
+        radial-gradient(circle at 30% 30%, rgba(92,225,230,0.25), transparent 25%),
+        radial-gradient(circle at 70% 40%, rgba(123,97,255,0.22), transparent 28%),
+        linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .hero-visual::before,
+    .hero-visual::after {
+      content: "";
+      position: absolute;
+      inset: auto;
+      border-radius: 50%;
+      filter: blur(10px);
+    }
+
+    .hero-visual::before {
+      width: 240px;
+      height: 240px;
+      top: 10%;
+      left: 12%;
+      background: rgba(92,225,230,0.18);
+      animation: float 8s ease-in-out infinite;
+    }
+
+    .hero-visual::after {
+      width: 200px;
+      height: 200px;
+      bottom: 8%;
+      right: 10%;
+      background: rgba(123,97,255,0.18);
+      animation: float 7s ease-in-out infinite reverse;
+    }
+
+    .hud {
+      position: absolute;
+      inset: 0;
+      padding: 24px;
+    }
+
+    .panel {
+      position: absolute;
+      border-radius: 18px;
+      background: rgba(5,12,28,0.55);
+      border: 1px solid rgba(255,255,255,0.1);
+      backdrop-filter: blur(8px);
+      box-shadow: var(--shadow);
+      color: #fff;
+    }
+
+    .panel.top {
+      top: 24px;
+      left: 24px;
+      right: 24px;
+      padding: 18px;
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    .panel.small {
+      padding: 16px;
+      width: 180px;
+    }
+
+    .panel.left {
+      left: 24px;
+      bottom: 24px;
+    }
+
+    .panel.right {
+      right: 24px;
+      bottom: 24px;
+    }
+
+    .metric {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--primary);
+    }
+
+    section {
+      padding: 90px 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      margin-bottom: 16px;
+    }
+
+    .section-subtitle {
+      color: var(--muted);
+      max-width: 760px;
+      margin-bottom: 40px;
+    }
+
+    .grid-2, .grid-3, .grid-4 {
+      display: grid;
+      gap: 24px;
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .grid-4 {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 26px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+      transition: 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(92,225,230,0.08), transparent 40%, rgba(123,97,255,0.06));
+      pointer-events: none;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(92,225,230,0.35);
+    }
+
+    .card h3 {
+      margin-bottom: 12px;
+      font-size: 1.2rem;
+    }
+
+    .card p {
+      color: var(--muted);
+    }
+
+    .icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, rgba(92,225,230,0.18), rgba(123,97,255,0.18));
+      border: 1px solid rgba(255,255,255,0.1);
+      font-size: 1.2rem;
+      box-shadow: var(--glow);
+    }
+
+    .pathway {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .pill {
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--muted);
+      transition: 0.3s ease;
+    }
+
+    .pill:hover {
+      color: var(--primary);
+      border-color: rgba(92,225,230,0.3);
+    }
+
+    .split-feature {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .feature-visual {
+      min-height: 380px;
+      border-radius: 28px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background:
+        radial-gradient(circle at 25% 25%, rgba(0,255,198,0.20), transparent 22%),
+        radial-gradient(circle at 75% 30%, rgba(123,97,255,0.20), transparent 20%),
+        linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-visual .ring {
+      position: absolute;
+      border: 1px solid rgba(92,225,230,0.25);
+      border-radius: 50%;
+      animation: spin 14s linear infinite;
+    }
+
+    .ring.r1 {
+      width: 240px;
+      height: 240px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .ring.r2 {
+      width: 160px;
+      height: 160px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation-direction: reverse;
+    }
+
+    .ring.r3 {
+      width: 90px;
+      height: 90px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation-duration: 8s;
+    }
+
+    .center-core {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      box-shadow: 0 0 25px rgba(92,225,230,0.75);
+    }
+
+    .list {
+      display: grid;
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .list li {
+      list-style: none;
+      color: var(--muted);
+      padding-left: 22px;
+      position: relative;
+    }
+
+    .list li::before {
+      content: "▹";
+      color: var(--primary);
+      position: absolute;
+      left: 0;
+    }
+
+    .cta-banner {
+      padding: 34px;
+      border-radius: 28px;
+      background: linear-gradient(135deg, rgba(92,225,230,0.12), rgba(123,97,255,0.12));
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: var(--shadow);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    footer {
+      padding: 40px 0 50px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      color: var(--muted);
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 24px;
+    }
+
+    /* Chatbot */
+    .chatbot-toggle {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      width: 64px;
+      height: 64px;
+      border: none;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: #06111f;
+      font-size: 1.5rem;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 10px 35px rgba(92,225,230,0.35);
+      z-index: 99;
+    }
+
+    .chatbot {
+      position: fixed;
+      right: 22px;
+      bottom: 100px;
+      width: 360px;
+      max-width: calc(100vw - 24px);
+      height: 520px;
+      background: rgba(7, 13, 28, 0.95);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      z-index: 100;
+    }
+
+    .chatbot.active {
+      display: flex;
+    }
+
+    .chat-header {
+      padding: 16px;
+      background: linear-gradient(135deg, rgba(92,225,230,0.18), rgba(123,97,255,0.18));
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .chat-header h3 {
+      margin-bottom: 4px;
+    }
+
+    .chat-header p {
+      color: #d9e6ff;
+      font-size: 0.9rem;
+    }
+
+    .chat-body {
+      flex: 1;
+      padding: 16px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .msg {
+      max-width: 85%;
+      padding: 12px 14px;
+      border-radius: 16px;
+      font-size: 0.95rem;
+    }
+
+    .bot {
+      align-self: flex-start;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .user {
+      align-self: flex-end;
+      background: linear-gradient(135deg, rgba(92,225,230,0.25), rgba(123,97,255,0.25));
+      border: 1px solid rgba(92,225,230,0.18);
+    }
+
+    .chat-quick {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 0 16px 12px;
+    }
+
+    .quick-btn {
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.05);
+      color: var(--muted);
+      cursor: pointer;
+      font-size: 0.85rem;
+    }
+
+    .quick-btn:hover {
+      color: var(--primary);
+      border-color: rgba(92,225,230,0.3);
+    }
+
+    .chat-input-wrap {
+      display: flex;
+      gap: 10px;
+      padding: 14px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .chat-input {
+      flex: 1;
+      background: rgba(255,255,255,0.06);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px;
+      padding: 12px 14px;
+      outline: none;
+    }
+
+    .send-btn {
+      border: none;
+      padding: 12px 16px;
+      border-radius: 14px;
+      cursor: pointer;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: #06111f;
+      font-weight: bold;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-18px); }
+    }
+
+    @keyframes spin {
+      from { transform: translate(-50%, -50%) rotate(0deg); }
+      to { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .split-feature,
+      .grid-2,
+      .grid-3,
+      .grid-4,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-visual {
+        min-height: 420px;
+      }
+
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        width: 100%;
+      }
+
+      .cta-banner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 640px) {
+      h1 {
+        font-size: 2.3rem;
+      }
+
+      .chatbot {
+        right: 12px;
+        bottom: 88px;
+        width: calc(100vw - 24px);
+        height: 72vh;
+      }
+
+      .chatbot-toggle {
+        right: 12px;
+        bottom: 12px;
+      }
+
+      .panel.top {
+        flex-direction: column;
+      }
+
+      .panel.small {
+        width: 150px;
+      }
+    }
+  </style>
 </head>
 <body>
-<header class="nav"><div class="wrap navin"><a class="brand" href="#top" aria-label="ÆTeCH home">ÆTeCH<small>LIMITED COMPANY</small></a><a class="pill" href="#contact">Contact ÆTeCH ↗</a></div></header>
-<main class="wrap" id="top">
-<section class="hero"><div class="eyebrow">Technology that thinks. builds. protects.</div><h1>Engineering a more <span class="glow">connected world.</span></h1><p>ÆTeCH Limited Company and ÆTeCH Artificial Intelligence Software System Company are building toward practical technology solutions across artificial intelligence, software development, cybersecurity, data, cloud and remote support — from Mombasa, Kenya, to the wider world.</p><p><span class="live-dot"></span><strong>Global time interface</strong> · live local clocks · international flags · remote-first vision</p></section>
-<section class="panel" aria-labelledby="clock-title"><div class="eyebrow">World time system</div><h2 id="clock-title">Kenya ↔ United Kingdom</h2><p class="muted">Computerized digital clocks with live time, weekday, date, month and year. Times follow each region’s official time-zone rules.</p><div class="clocks"><article class="clock"><div class="clocktop"><span class="flag" aria-hidden="true">🇰🇪</span><span>KENYA · NAIROBI / MOMBASA</span></div><div class="time" id="kenya-time">Loading…</div><div class="date" id="kenya-date">Loading date…</div><div class="zone">Africa/Nairobi · East Africa Time (EAT)</div></article><article class="clock"><div class="clocktop"><span class="flag" aria-hidden="true">🇬🇧</span><span>UNITED KINGDOM · LONDON</span></div><div class="time" id="uk-time">Loading…</div><div class="date" id="uk-date">Loading date…</div><div class="zone" id="uk-zone">Europe/London · UK local time</div></article></div><div class="muted" style="font-size:.78rem"><span class="live-dot"></span>Clock updates every second on this device.</div></section>
-<section class="section"><div class="eyebrow">International reach</div><h2>Local roots. Global perspective.</h2><p class="muted">A visual statement of a remote-first technology vision: collaboration, communication and digital services can cross borders.</p><div class="network" role="img" aria-label="Decorative animated globe and international network symbols"><span class="node n1">🇰🇪</span><span class="node n2">🇬🇧</span><span class="node n3">🇺🇸</span><span class="node n4">🇯🇵</span><div class="orb" aria-hidden="true">🌐</div></div><div class="country-grid" aria-label="Countries represented in the global network visual"><div class="country"><span>🇰🇪</span>Kenya</div><div class="country"><span>🇬🇧</span>United Kingdom</div><div class="country"><span>🇺🇸</span>United States</div><div class="country"><span>🇨🇦</span>Canada</div><div class="country"><span>🇿🇦</span>South Africa</div><div class="country"><span>🇳🇬</span>Nigeria</div><div class="country"><span>🇮🇳</span>India</div><div class="country"><span>🇯🇵</span>Japan</div><div class="country"><span>🇩🇪</span>Germany</div><div class="country"><span>🇦🇪</span>United Arab Emirates</div><div class="country"><span>🇦🇺</span>Australia</div><div class="country"><span>🇧🇷</span>Brazil</div></div><p class="notice">Flags and animated network lines are illustrative design elements. They do not indicate verified live network connections, offices, customers or services in these countries.</p></section>
-<section class="section"><div class="eyebrow">Technology capabilities</div><h2>What ÆTeCH is building toward</h2><div class="grid"><article class="tile"><div class="eyebrow">01 · Intelligence</div><h3>AI &amp; Machine Learning</h3><p>AI concepts, model workflows, data preparation and intelligent application prototypes.</p></article><article class="tile"><div class="eyebrow">02 · Engineering</div><h3>Software Development</h3><p>Web experiences, application prototypes, integrations and maintenance planning.</p></article><article class="tile"><div class="eyebrow">03 · Protection</div><h3>Cybersecurity &amp; Privacy</h3><p>Defensive security guidance, data protection awareness and privacy-conscious design.</p></article><article class="tile"><div class="eyebrow">04 · Infrastructure</div><h3>Cloud &amp; Networking</h3><p>Cloud architecture, deployment planning, connectivity and troubleshooting guidance.</p></article><article class="tile"><div class="eyebrow">05 · Remote</div><h3>Remote Technical Support</h3><p>Remote-first technical guidance where suitable, available and authorised.</p></article><article class="tile"><div class="eyebrow">06 · Advisory</div><h3>Technology Consulting</h3><p>Requirements discovery, project scoping and implementation planning.</p></article></div><p class="notice">Capabilities may be at different stages of development. Confirm scope, availability and delivery timelines with ÆTeCH before relying on a service for business-critical work.</p></section>
-<section class="section panel contact" id="contact"><div class="eyebrow">Connect remotely</div><h2>Contact ÆTeCH</h2><p class="muted">For project enquiries, collaboration, technology consulting and remote support requests.</p><div class="contactline">📍 <strong>Location:</strong> Mombasa, Coast, Kenya · Remote-first engagement</div><div class="contactline">☎️ <strong>Phone:</strong> <a href="tel:+254795963615">+254 795 963 615</a></div><div class="contactline">💬 <strong>WhatsApp:</strong> <a href="https://wa.me/254795963615" target="_blank" rel="noopener noreferrer">Message ÆTeCH on WhatsApp</a></div><div class="contactline">✉️ <strong>Email:</strong> <a href="mailto:mwamachikwaru@gmail.com">mwamachikwaru@gmail.com</a></div><div class="contactline">💻 <strong>GitHub:</strong> <a href="https://github.com/alphoncek" target="_blank" rel="noopener noreferrer">github.com/alphoncek</a></div><div class="contactline">🌐 <strong>Website repository:</strong> <a href="https://github.com/alphoncek/aetech-limited-website-" target="_blank" rel="noopener noreferrer">ÆTeCH website source</a></div><div class="contactline">🔗 <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/alphonce-kwaru/" target="_blank" rel="noopener noreferrer">Alphonce Kwaru</a></div><div class="contactline">🏅 <strong>Credly:</strong> <a href="https://www.credly.com/users/alphonce-kwaru" target="_blank" rel="noopener noreferrer">Credential profile</a></div><div class="contactline">☁️ <strong>Google Developer Profile:</strong> <a href="https://developers.google.com/profile/u/mwamachikwaru" target="_blank" rel="noopener noreferrer">mwamachikwaru</a></div><p class="notice">Only publish contact information you are comfortable making public. The global connectivity visual is not a live monitoring system, and this static page does not provide account authentication or biometric security.</p></section>
-</main><footer class="footer"><div class="wrap">© <span id="year"></span> ÆTeCH Limited Company · Empowering people, optimizing technology and securing the future.</div></footer>
-<script>
-(function(){'use strict';
- const configs=[{id:'kenya',zone:'Africa/Nairobi',locale:'en-KE'},{id:'uk',zone:'Europe/London',locale:'en-GB'}];
- function updateClock(c){const now=new Date();const time=new Intl.DateTimeFormat(c.locale,{timeZone:c.zone,hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false}).format(now);const date=new Intl.DateTimeFormat(c.locale,{timeZone:c.zone,weekday:'long',day:'2-digit',month:'long',year:'numeric'}).format(now);const t=document.getElementById(c.id+'-time');const d=document.getElementById(c.id+'-date');if(t)t.textContent=time;if(d)d.textContent=date;if(c.id==='uk'){const z=new Intl.DateTimeFormat('en-GB',{timeZone:c.zone,timeZoneName:'long'}).formatToParts(now).find(p=>p.type==='timeZoneName');const el=document.getElementById('uk-zone');if(el&&z)el.textContent='Europe/London · '+z.value;}}
- function tick(){configs.forEach(updateClock);const y=document.getElementById('year');if(y)y.textContent=new Date().getFullYear();}
- tick();setInterval(tick,1000);
-})();
-</script>
-</body>
-</html>
+
+  <header>
+    <div class="container nav">
+      <div class="logo">Æ<span>TeCH</span></div>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#companies">Companies</a>
+        <a href="#capabilities">AI Capabilities</a>
+        <a href="#advantages">Why Us</a>
+        <a href="#contact">Contact</a>
+        <a href="javascript:void(0)" class="btn" onclick="toggleChat()">AI Assistant</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Future-Ready Technology Portal</span>
+          <h1>Building Intelligent Systems for the Future of Business</h1>
+          <p>
+            ÆTeCH Limited Company and ÆTeCH Artificial Intelligence Software System Company deliver futuristic,
+            practical, and high-impact digital innovation. We create intelligent platforms, advanced AI systems,
+            and transformative solutions that help organizations operate smarter, faster, and more effectively.
+          </p>
+          <div class="hero-actions">
+            <a href="#companies" class="btn primary">Explore Our Companies</a>
+            <a href="#capabilities" class="btn">View AI Capabilities</a>
+            <a href="javascript:void(0)" class="btn" onclick="toggleChat()">Talk to AI Assistant</a>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hud">
+            <div class="panel top">
+              <div>
+                <div style="color: var(--muted); font-size: 0.85rem;">System Status</div>
+                <div class="metric">Operational Intelligence Active</div>
+              </div>
+              <div>
+                <div style="color: var(--muted); font-size: 0.85rem;">Core Focus</div>
+                <div style="font-weight: bold;">Automation • AI Systems • Digital Innovation</div>
+              </div>
+            </div>
+
+            <div class="panel small left">
+              <div style="color: var(--muted); font-size: 0.8rem;">AI Capability</div>
+              <div class="metric">24/7</div>
+              <div style="font-size: 0.85rem;">Smart Client Assistance</div>
+            </div>
+
+            <div class="panel small right">
+              <div style="color: var(--muted); font-size: 0.8rem;">Strategic Value</div>
+              <div class="metric">360°</div>
+              <div style="font-size: 0.85rem;">Business Transformation View</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <h2 class="section-title">Who We Are</h2>
+        <p class="section-subtitle">
+          ÆTeCH is a forward-thinking innovation company focused on advanced business technology,
+          intelligent systems, and practical artificial intelligence solutions that generate real value.
+          We do more than describe innovation — we engineer it into systems, services, and digital experiences.
+        </p>
+
+        <div class="grid-3">
+          <div class="card">
+            <div class="icon">⟡</div>
+            <h3>Innovation-Led Vision</h3>
+            <p>We build future-ready digital environments that reflect ambition, intelligence, and scalable growth.</p>
+          </div>
+          <div class="card">
+            <div class="icon">◉</div>
+            <h3>Practical Intelligence</h3>
+            <p>Our AI solutions are designed to solve real operational challenges and improve decision-making.</p>
+          </div>
+          <div class="card">
+            <div class="icon">⌁</div>
+            <h3>Premium Execution</h3>
+            <p>We combine strategy, design, software capability, and user engagement into one connected experience.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="companies">
+      <div class="container">
+        <h2 class="section-title">Two Powerful Entities. One Intelligent Vision.</h2>
+        <p class="section-subtitle">
+          Our portal showcases both business strength and technological advancement through two focused arms of innovation.
+        </p>
+
+        <div class="grid-2">
+          <div class="card">
+            <div class="icon">🏢</div>
+            <h3>ÆTeCH Limited Company</h3>
+            <p>
+              Focused on innovative business technology solutions, strategic development, high-value services,
+              and digital transformation models that improve efficiency, precision, and growth.
+            </p>
+            <div class="pathway">
+              <a href="#contact" class="pill">Business Solutions</a>
+              <a href="#advantages" class="pill">Value Proposition</a>
+              <a href="#capabilities" class="pill">Connected Innovation</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="icon">🤖</div>
+            <h3>ÆTeCH Artificial Intelligence Software System Company</h3>
+            <p>
+              Dedicated to advanced AI software systems that automate operations, su
