@@ -1,291 +1,1443 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#06101d">
-  <meta name="description" content="ÆTeCH Limited Company and ÆTeCH Artificial Intelligence Software System — AI, software, cybersecurity, cloud, data and technology support.">
-  <title>ÆTeCH Limited | AI, Software, Security & Global Connectivity</title>
-  <style>
-    :root {
-      --bg: #050b14;
-      --panel: #081728;
-      --panel-2: #0b1c30;
-      --line: #163650;
-      --cyan: #00d9ff;
-      --cyan-soft: #70eaff;
-      --text: #f2f7ff;
-      --muted: #a4b5c9;
-      --radius: 16px;
-      --max: 1120px;
-    }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      color: var(--text);
-      background:
-        radial-gradient(ellipse at 85% 5%, rgba(0,217,255,.09), transparent 32rem),
-        radial-gradient(ellipse at 5% 40%, rgba(20,85,145,.12), transparent 35rem),
-        var(--bg);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.65;
-    }
-    a { color: var(--cyan-soft); text-decoration: none; }
-    a:hover { color: white; }
-    button, input { font: inherit; }
-    .wrap { width: min(var(--max), calc(100% - 32px)); margin-inline: auto; }
-    .topbar {
-      position: sticky; top: 0; z-index: 20;
-      background: rgba(3, 10, 19, .92);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(42, 113, 151, .28);
-    }
-    .nav {
-      min-height: 68px; display: flex; align-items: center;
-      justify-content: space-between; gap: 18px;
-    }
-    .brand { font-size: .94rem; font-weight: 900; letter-spacing: .16em; color: #f4f9ff; }
-    .brand span { color: var(--cyan); }
-    .navlinks { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
-    .navlinks a { color: #c6d7e8; font-size: .82rem; }
-    .navlinks a:hover { color: var(--cyan); }
-    .menu-toggle { display: none; background: transparent; color: white; border: 1px solid var(--line); border-radius: 9px; padding: 7px 10px; }
-    .hero { padding: 76px 0 56px; }
-    .eyebrow {
-      color: var(--cyan); text-transform: uppercase; letter-spacing: .2em;
-      font-size: .72rem; font-weight: 800; margin: 0 0 12px;
-    }
-    h1, h2, h3, p { margin-top: 0; }
-    h1 { font-size: clamp(2.2rem, 6vw, 4.8rem); line-height: 1.08; letter-spacing: -.045em; max-width: 850px; margin-bottom: 20px; }
-    h1 .accent { color: var(--cyan); }
-    .lead { max-width: 730px; color: #b2c2d5; font-size: 1.04rem; }
-    .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 26px; }
-    .btn {
-      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-      padding: 11px 16px; border-radius: 10px; border: 1px solid #17617c;
-      background: linear-gradient(135deg, rgba(0,217,255,.14), rgba(8,30,51,.65));
-      color: #e8fbff; font-weight: 750; font-size: .88rem;
-    }
-    .btn.primary { background: var(--cyan); color: #00121c; border-color: var(--cyan); }
-    .btn:hover { transform: translateY(-1px); filter: brightness(1.08); }
-    .search-section { padding: 28px 0 54px; }
-    .search-shell { border: 1px solid #15506b; background: rgba(6, 21, 37, .82); border-radius: 20px; padding: clamp(20px, 4vw, 34px); box-shadow: 0 18px 60px rgba(0,0,0,.18); }
-    .search-title { font-size: clamp(1.6rem, 4vw, 2.45rem); line-height: 1.2; margin-bottom: 12px; }
-    .search-copy { color: var(--muted); max-width: 650px; font-size: .93rem; }
-    .searchbar { display: flex; align-items: center; gap: 10px; margin-top: 22px; padding: 7px 9px 7px 15px; border: 1px solid #147391; background: #061321; border-radius: 13px; }
-    .searchbar .glass { color: var(--cyan); font-size: 1.2rem; }
-    .searchbar input { flex: 1; min-width: 0; background: transparent; color: white; border: 0; outline: 0; padding: 8px 0; }
-    .searchbar input::placeholder { color: #7890a7; }
-    .searchbar button { border: 0; border-radius: 8px; background: #09283a; color: var(--cyan); padding: 8px 12px; cursor: pointer; font-size: .73rem; font-weight: 900; letter-spacing: .08em; }
-    .search-meta { color: #8da7be; font-size: .75rem; margin: 10px 2px 18px; }
-    .search-results { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-    .result-card, .card {
-      border: 1px solid var(--line); border-radius: 13px;
-      background: linear-gradient(145deg, rgba(9,28,48,.95), rgba(5,15,27,.98));
-      padding: 17px;
-    }
-    .result-card .tag { color: var(--cyan); font-size: .65rem; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; }
-    .result-card h3 { font-size: 1rem; margin: 7px 0 4px; }
-    .result-card p { font-size: .8rem; color: var(--muted); margin-bottom: 10px; }
-    .result-card a { font-size: .78rem; font-weight: 800; }
-    .section { padding: 62px 0; }
-    .section-head { max-width: 740px; margin-bottom: 26px; }
-    .section-head h2 { font-size: clamp(1.8rem, 4vw, 2.7rem); line-height: 1.2; margin-bottom: 12px; letter-spacing: -.025em; }
-    .section-head p { color: var(--muted); }
-    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-    .profile-card { padding: clamp(20px, 4vw, 30px); }
-    .profile-card h3 { margin-bottom: 8px; }
-    .profile-card p, .card p { color: var(--muted); font-size: .9rem; }
-    .small-label { color: var(--cyan); text-transform: uppercase; font-size: .68rem; letter-spacing: .15em; font-weight: 900; }
-    .pill-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 17px; }
-    .pill { border: 1px solid #1a4962; border-radius: 999px; padding: 5px 10px; font-size: .74rem; color: #c4e8f5; background: rgba(4,22,37,.7); }
-    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-    .card { min-height: 174px; transition: border-color .2s, transform .2s; }
-    .card:hover { border-color: #1c8cad; transform: translateY(-2px); }
-    .icon { display: inline-grid; place-items: center; width: 34px; height: 34px; margin-bottom: 13px; color: var(--cyan); border: 1px solid #1a6079; border-radius: 10px; background: rgba(0,217,255,.07); font-weight: 900; }
-    .card h3 { font-size: 1.02rem; margin-bottom: 6px; }
-    .card p { margin-bottom: 0; }
-    .credentials { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
-    .credential { display: flex; gap: 13px; align-items: flex-start; }
-    .credential .icon { flex: 0 0 34px; }
-    .credential h3 { font-size: .93rem; margin: 0 0 4px; }
-    .credential p { margin: 0; font-size: .82rem; color: var(--muted); }
-    .notice { border-left: 3px solid var(--cyan); padding: 12px 16px; color: #a9bfd3; background: rgba(0,217,255,.045); border-radius: 0 10px 10px 0; font-size: .82rem; margin-top: 18px; }
-    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-    .contact-item { padding: 20px; border: 1px solid var(--line); background: #071626; border-radius: 13px; }
-    .contact-item span { display: block; color: var(--cyan); text-transform: uppercase; letter-spacing: .14em; font-size: .68rem; font-weight: 900; margin-bottom: 5px; }
-    .contact-item strong, .contact-item a { overflow-wrap: anywhere; }
-    footer { padding: 28px 0; border-top: 1px solid rgba(42,113,151,.25); color: #8fa5bb; font-size: .78rem; }
-    .footer-inner { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
-    .hidden { display: none !important; }
-    @media (max-width: 760px) {
-      .nav { min-height: 60px; }
-      .menu-toggle { display: inline-block; }
-      .navlinks { display: none; position: absolute; left: 0; right: 0; top: 60px; padding: 16px; background: #050e19; border-bottom: 1px solid var(--line); }
-      .navlinks.open { display: grid; grid-template-columns: 1fr 1fr; }
-      .hero { padding: 53px 0 34px; }
-      .search-results, .grid-3 { grid-template-columns: 1fr; }
-      .two-col, .credentials, .contact-grid { grid-template-columns: 1fr; }
-      .section { padding: 45px 0; }
-      .card { min-height: 0; }
-    }
-    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; } }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    /* Restored ÆTeCH assistant and global connectivity components */
-    .world-panel, .assistant-panel { border:1px solid var(--line); background:linear-gradient(145deg,rgba(8,23,40,.96),rgba(5,14,25,.96)); border-radius:18px; padding:clamp(18px,3vw,28px); }
-    .world-clocks { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; margin-top:20px; }
-    .world-clock { padding:20px; border:1px solid #17445a; border-radius:14px; background:#061321; }
-    .world-clock .flag { font-size:1.8rem; margin-right:8px; }
-    .world-clock .time { font-size:clamp(1.7rem,4vw,2.5rem); font-weight:850; letter-spacing:.04em; color:var(--cyan); margin:10px 0 2px; font-variant-numeric:tabular-nums; }
-    .world-clock .date, .world-clock .zone { color:var(--muted); font-size:.86rem; }
-    .country-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:9px; margin-top:18px; }
-    .country-chip { display:flex; align-items:center; gap:8px; border:1px solid var(--line); background:#071626; border-radius:10px; padding:10px; font-size:.84rem; }
-    .country-chip span { font-size:1.25rem; }
-    .assistant-layout { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.2fr); gap:18px; align-items:start; }
-    .assistant-intro { color:var(--muted); }
-    .chat-log { min-height:220px; max-height:340px; overflow:auto; padding:14px; border:1px solid var(--line); border-radius:12px; background:#030b14; display:flex; flex-direction:column; gap:10px; }
-    .chat-msg { max-width:92%; padding:10px 12px; border-radius:12px; white-space:pre-wrap; overflow-wrap:anywhere; font-size:.9rem; }
-    .chat-msg.bot { align-self:flex-start; border:1px solid #16455a; background:#0a1d2c; color:#e6f6ff; }
-    .chat-msg.user { align-self:flex-end; background:#063d52; border:1px solid #087b9d; color:white; }
-    .chat-form { display:flex; gap:8px; margin-top:10px; }
-    .chat-input { min-width:0; flex:1; border:1px solid var(--line); border-radius:10px; background:#030b14; color:var(--text); padding:12px; }
-    .chat-send { border:1px solid #0783a7; border-radius:10px; padding:10px 15px; color:#00121b; font-weight:850; background:var(--cyan); cursor:pointer; }
-    .chat-hints { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
-    .chat-hints button { cursor:pointer; border:1px solid var(--line); border-radius:999px; padding:7px 10px; color:#c4e8f5; background:#071626; font-size:.78rem; }
-    .chat-disclaimer { color:var(--muted); font-size:.77rem; margin:12px 0 0; }
-    @media(max-width:760px){.world-clocks,.assistant-layout{grid-template-columns:1fr}.country-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.chat-form{flex-direction:column}.chat-send{width:100%}}
+<title>ÆTeCH | Artificial Intelligence & Technology</title>
 
-  </style>
+<meta name="description" content="ÆTeCH Limited Company and ÆTeCH Artificial Intelligence Software System deliver AI engineering, machine learning, software development, cybersecurity, cloud computing and technology consulting.">
+
+<meta name="theme-color" content="#07111f">
+
+<style>
+:root {
+  --bg: #07111f;
+  --panel: #101e30;
+  --cyan: #00d9ff;
+  --white: #f5f9ff;
+  --muted: #a9b8cb;
+  --border: rgba(255,255,255,.12);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.7;
+}
+
+a {
+  color: var(--cyan);
+  text-decoration: none;
+}
+
+.container {
+  width: min(1150px, 92%);
+  margin: auto;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(7,17,31,.96);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(15px);
+}
+
+.navbar {
+  min-height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.logo {
+  font-size: 27px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  color: var(--cyan);
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 17px;
+}
+
+nav a {
+  color: var(--white);
+  font-size: 13px;
+}
+
+nav a:hover {
+  color: var(--cyan);
+}
+
+section {
+  padding: 75px 0;
+  scroll-margin-top: 80px;
+}
+
+.hero {
+  min-height: 650px;
+  display: flex;
+  align-items: center;
+  background:
+    radial-gradient(ellipse at 80% 30%,
+      rgba(0,217,255,.16), transparent 45%),
+    linear-gradient(135deg,#07111f,#10253a);
+}
+
+.eyebrow {
+  color: var(--cyan);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+h1 {
+  font-size: clamp(38px,7vw,76px);
+  line-height: 1.12;
+  margin: 20px 0;
+}
+
+h2 {
+  font-size: clamp(28px,4vw,43px);
+  margin-bottom: 20px;
+}
+
+h3 {
+  margin-bottom: 12px;
+}
+
+.highlight {
+  color: var(--cyan);
+}
+
+.lead {
+  max-width: 750px;
+  color: var(--muted);
+  font-size: 18px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 28px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 22px;
+  border-radius: 7px;
+  border: 1px solid var(--cyan);
+  font-weight: bold;
+}
+
+.btn-primary {
+  color: #06111d;
+  background: var(--cyan);
+}
+
+.btn-outline {
+  color: var(--cyan);
+}
+
+.section-intro {
+  max-width: 800px;
+  color: var(--muted);
+  margin-bottom: 30px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns:
+    repeat(auto-fit,minmax(235px,1fr));
+  gap: 20px;
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 25px;
+  transition: transform .2s,border-color .2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: var(--cyan);
+}
+
+.card p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.icon {
+  font-size: 30px;
+  margin-bottom: 12px;
+}
+
+.alt {
+  background: #0a1727;
+}
+
+.badge {
+  display: inline-block;
+  padding: 5px 10px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  margin: 5px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+footer {
+  border-top: 1px solid var(--border);
+  padding: 30px 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+@media(max-width:700px) {
+  .navbar {
+    padding: 15px 0;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  nav {
+    gap: 12px;
+  }
+
+  .hero {
+    min-height: 540px;
+  }
+
+  section {
+    padding: 55px 0;
+  }
+}
+</style>
 </head>
+
 <body>
-  <header class="topbar">
-    <div class="wrap nav">
-      <a class="brand" href="#home" aria-label="ÆTeCH home">ÆTeCH <span>LIMITED</span></a>
-      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-label="Toggle navigation">MENU ☰</button>
-      <nav class="navlinks" id="navLinks" aria-label="Main navigation">
-        <a href="#about">Company</a>
-        <a href="#services">Services</a>
-        <a href="#credentials">Credentials</a>
-        <a href="#global-connectivity">Global</a>
-        <a href="#assistant">AI Assistant</a>
-        <a href="#contact">Contact</a>
-      </nav>
+
+<header>
+  <div class="container navbar">
+    <a class="logo" href="#home">ÆTeCH</a>
+
+    <nav aria-label="Main navigation">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#innovation">Innovation</a>
+      <a href="#connect">Connect</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+  <div class="container">
+
+    <p class="eyebrow">
+      Intelligence · Engineering · Innovation
+    </p>
+
+    <h1>
+      Building an<br>
+      <span class="highlight">Intelligent Future.</span>
+    </h1>
+
+    <p class="lead">
+      ÆTeCH Limited Company and ÆTeCH Artificial Intelligence
+      Software System are developing technology solutions
+      across artificial intelligence, machine learning,
+      software engineering, cybersecurity and digital
+      transformation.
+    </p>
+
+    <div class="actions">
+      <a class="btn btn-primary" href="#services">
+        Explore Our Services
+      </a>
+
+      <a class="btn btn-outline" href="#contact">
+        Contact ÆTeCH
+      </a>
     </div>
-  </header>
 
-  <main id="home">
-    <section class="hero wrap">
-      <p class="eyebrow">Intelligence · Engineering · Security</p>
-      <h1>Technology that <span class="accent">thinks, builds</span> and protects.</h1>
-      <p class="lead">ÆTeCH Limited Company and ÆTeCH Artificial Intelligence Software System are building a technology-focused future through practical software, AI, data, cybersecurity and digital infrastructure solutions.</p>
-      <div class="actions">
-        <a class="btn primary" href="#services">Explore our services ↗</a>
-        <a class="btn" href="#contact">Connect with ÆTeCH</a>
+    <p style="margin-top:30px;color:#a9b8cb">
+      Empowering people, optimizing technology and securing
+      the future.
+    </p>
+
+  </div>
+</section>
+
+<!-- PART 2 WILL CONTINUE BELOW THIS LINE --><!-- COMPANY PROFILE -->
+<section id="about">
+  <div class="container">
+
+    <p class="eyebrow">Who We Are</p>
+
+    <h2>Engineering Technology for a Better Future</h2>
+
+    <p class="section-intro">
+      ÆTeCH Limited Company and ÆTeCH Artificial Intelligence
+      Software System are technology initiatives focused on
+      developing intelligent digital solutions for individuals,
+      businesses, institutions and organizations.
+      Our vision is to combine artificial intelligence,
+      software engineering, cybersecurity and cloud technologies
+      to address real-world challenges.
+    </p>
+
+    <div class="grid">
+
+      <article class="card">
+        <div class="icon">🌍</div>
+        <h3>Our Mission</h3>
+        <p>
+          Empowering people, optimizing technology and securing
+          the future through responsible innovation, intelligent
+          systems and practical digital solutions.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="icon">🚀</div>
+        <h3>Our Vision</h3>
+        <p>
+          To develop a globally recognized technology company
+          that creates useful AI systems, supports digital
+          transformation and contributes to economic growth.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="icon">🛡️</div>
+        <h3>Our Principles</h3>
+        <p>
+          Innovation, integrity, privacy, responsible AI,
+          continuous learning, reliable engineering and
+          customer-focused service.
+        </p>
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- OUR PROFESSIONAL SERVICES -->
+<section id="services" class="alt">
+  <div class="container">
+
+    <p class="eyebrow">What We Do</p>
+
+    <h2>Our Technology Services</h2>
+
+    <p class="section-intro">
+      Explore our technology service areas. Project scope,
+      availability, pricing and delivery timelines are
+      confirmed individually with each client.
+    </p>
+
+    <div class="grid">
+
+      <article class="card">
+        <div class="icon">🤖</div>
+        <h3>Artificial Intelligence</h3>
+        <p>
+          AI-powered applications, intelligent assistants,
+          workflow automation, AI integrations and digital
+          customer-support solutions.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="icon">🧠</div>
+        <h3>Machine Learning</h3>
+        <p>
+          Machine-learning experimentation, data preparation,
+          predictive modelling, model evaluation and intelligent
+          decision-support systems.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="icon">💻</div>
+        <h3>Software Development</h3>
+        <p>
+          Website development, web applications, Python
+          programming, API integration, backend development
+          and software prototyping.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="icon">🔐</div>
+        <h3>Cybersecurity</h3>
+        <p>
+          Security awareness, secure development practices,
+          vulnerability-management guidance, access-control
+          design and security-conscious system architecture.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="icon">⚖️</div>
+        <h3>Data Protection</h3>
+        <p>
+          Privacy-conscious technology design, data-handling
+          guidance, documentation support and alignment with
+          applicable data-protection requirements, including
+          Kenya's Data Protection Act, 2019.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="icon">☁️</div>
+        <h3>Cloud Engineering</h3>
+        <p>
+          Cloud application concepts, deployment planning,
+          cloud-based AI integration, infrastructure guidance
+          and scalable software architecture.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="icon">📊</div>
+        <h3>Data Analytics</h3>
+        <p>
+          Data cleaning, exploratory analysis, reporting,
+          visualization and data-driven insights to help
+          organizations understand their information.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="icon">🌐</div>
+        <h3>Networking and IT Support</h3>
+        <p>
+          Technical troubleshooting, network fundamentals,
+          system configuration guidance and general IT
+          support for digital environments.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="icon">💡</div>
+        <h3>Technology Consulting</h3>
+        <p>
+          Digital transformation planning, software project
+          guidance, technology selection and practical
+          recommendations for business technology needs.
+        </p>
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- AI SYSTEM DEVELOPMENT -->
+<section id="innovation">
+  <div class="container">
+
+    <p class="eyebrow">Research and Development</p>
+
+    <h2>Building ÆTeCH AI</h2>
+
+    <p class="section-intro">
+      ÆTeCH AI is our developing artificial intelligence
+      software initiative. Its engineering direction includes
+      knowledge-based responses, conversational interfaces,
+      backend services and future integrations with advanced
+      AI technologies.
+    </p>
+
+    <div class="grid">
+
+      <article class="card">
+        <h3>Intelligent Assistance</h3>
+        <p>
+          Explore conversational interfaces designed to help
+          people find information, understand services and
+          navigate digital experiences.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3>AI Engineering</h3>
+        <p>
+          Develop and test software components, knowledge
+          systems, APIs and integrations as the project
+          progresses through engineering and validation.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3>Responsible Innovation</h3>
+        <p>
+          Prioritize privacy, security, reliability, human
+          oversight and transparent communication about
+          system capabilities and limitations.
+        </p>
+      </article>
+
+    </div>
+
+    <p style="margin-top:25px;color:#a9b8cb">
+      Development status: Engineering and ongoing development.
+      Production capabilities depend on implementation,
+      testing, security reviews and deployment.
+    </p>
+
+  </div>
+</section>
+
+<!-- END OF PART 2 --><!-- PART 3: PROFESSIONAL PROFILE AND GLOBAL CONNECTIVITY -->
+
+<section id="ecosystem" class="alt">
+  <div class="container">
+
+    <p class="eyebrow">Our Technology Ecosystem</p>
+
+    <h2>Connected to the Future of Technology</h2>
+
+    <p class="section-intro">
+      ÆTeCH embraces continuous learning, developer communities,
+      artificial intelligence research and cloud technologies
+      to support the development of modern digital solutions.
+    </p>
+
+    <div class="grid">
+
+      <article class="card">
+        <div class="icon">☁️</div>
+
+        <h3>Google Cloud Developer Community</h3>
+
+        <p>
+          Exploring cloud computing, generative AI, Gemini,
+          data analytics, intelligent agents and cloud-based
+          application development through learning and
+          developer-community participation.
+        </p>
+
+        <p style="margin-top:15px">
+          <a href="https://developers.google.com/"
+             target="_blank"
+             rel="noopener noreferrer">
+            Explore Google Developers →
+          </a>
+        </p>
+
+        <p style="margin-top:12px">
+          <a href="https://www.cloudskillsboost.google/"
+             target="_blank"
+             rel="noopener noreferrer">
+            Google Cloud Skills →
+          </a>
+        </p>
+
+      </article>
+
+      <article class="card">
+        <div class="icon">🟢</div>
+
+        <h3>NVIDIA Developer Community</h3>
+
+        <p>
+          Following developments in accelerated computing,
+          artificial intelligence, machine learning,
+          GPU technologies and developer tools.
+        </p>
+
+        <p style="margin-top:15px">
+          <a href="https://developer.nvidia.com/"
+             target="_blank"
+             rel="noopener noreferrer">
+            Explore NVIDIA Developers →
+          </a>
+        </p>
+
+      </article>
+
+      <article class="card">
+        <div class="icon">💻</div>
+
+        <h3>ÆTeCH Software Development</h3>
+
+        <p>
+          Developing software prototypes, web applications,
+          AI-related tools and digital solutions through
+          practical engineering and continuous improvement.
+        </p>
+
+        <p style="margin-top:15px">
+          <a href="https://github.com/alphoncek"
+             target="_blank"
+             rel="noopener noreferrer">
+            Explore Our GitHub Profile →
+          </a>
+        </p>
+
+      </article>
+
+    </div>
+
+    <div style="margin-top:35px">
+
+      <h3>Technology Areas</h3>
+
+      <span class="badge">Artificial Intelligence</span>
+      <span class="badge">Machine Learning</span>
+      <span class="badge">Python</span>
+      <span class="badge">Google Cloud</span>
+      <span class="badge">Generative AI</span>
+      <span class="badge">Cybersecurity</span>
+      <span class="badge">Data Analytics</span>
+      <span class="badge">Software Engineering</span>
+      <span class="badge">Cloud Computing</span>
+      <span class="badge">Intelligent Agents</span>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- GLOBAL CONNECTIVITY -->
+
+<section id="connect">
+  <div class="container">
+
+    <p class="eyebrow">A Connected World</p>
+
+    <h2>Kenya to the World</h2>
+
+    <p class="section-intro">
+      Technology connects people, businesses and ideas across
+      borders. Explore the current local time in Kenya and
+      the United Kingdom, and discover countries around the
+      world.
+    </p>
+
+    <div class="grid">
+
+      <article class="card">
+        <div class="icon">🇰🇪</div>
+
+        <h3>Kenya</h3>
+
+        <p>East Africa Time · Africa/Nairobi</p>
+
+        <h2 id="kenya-time"
+            style="font-size:32px;margin-top:15px">
+          --:--:--
+        </h2>
+
+        <p id="kenya-date">Loading date...</p>
+
+      </article>
+
+      <article class="card">
+        <div class="icon">🇬🇧</div>
+
+        <h3>United Kingdom</h3>
+
+        <p>UK local time · Europe/London</p>
+
+        <h2 id="uk-time"
+            style="font-size:32px;margin-top:15px">
+          --:--:--
+        </h2>
+
+        <p id="uk-date">Loading date...</p>
+
+      </article>
+
+      <article class="card">
+        <div class="icon">🌍</div>
+
+        <h3>Global Connections</h3>
+
+        <p>
+          Digital technology enables collaboration across
+          continents, time zones, industries and communities.
+        </p>
+
+        <p style="margin-top:15px">
+          <a href="https://www.timeanddate.com/worldclock/"
+             target="_blank"
+             rel="noopener noreferrer">
+            Explore World Clocks →
+          </a>
+        </p>
+
+      </article>
+
+    </div>
+
+    <div style="margin-top:35px">
+
+      <h3>Explore International Communities</h3>
+
+      <p class="section-intro">
+        Connect with global technology resources and
+        international developer communities.
+      </p>
+
+      <div class="grid">
+
+        <article class="card">
+          <h3>🇰🇪 Kenya</h3>
+          <p>Our home market and technology community.</p>
+        </article>
+
+        <article class="card">
+          <h3>🇬🇧 United Kingdom</h3>
+          <p>International technology and innovation ecosystem.</p>
+        </article>
+
+        <article class="card">
+          <h3>🇺🇸 United States</h3>
+          <p>Explore global AI and software development resources.</p>
+        </article>
+
+        <article class="card">
+          <h3>🌐 Worldwide</h3>
+          <p>
+            Our digital services can support remote
+            engagement wherever service delivery is feasible.
+          </p>
+        </article>
+
       </div>
-    </section>
 
-    <section class="search-section wrap" aria-labelledby="searchHeading">
-      <div class="search-shell">
-        <p class="eyebrow">ÆTeCH Intelligence Interface</p>
-        <h2 class="search-title" id="searchHeading">Search the ÆTeCH ecosystem.</h2>
-        <p class="search-copy">Find services, credentials, technical capabilities and contact information instantly.</p>
-        <label class="searchbar" for="siteSearch">
-          <span class="glass" aria-hidden="true">⌕</span>
-          <input id="siteSearch" type="search" placeholder="Search ÆTeCH, AI, cybersecurity, credentials..." autocomplete="off">
-          <button type="button" id="clearSearch">CLEAR</button>
-        </label>
-        <p class="search-meta" id="searchMeta" aria-live="polite">Explore company information, services and technical interests.</p>
-        <div class="search-results" id="searchResults">
-          <article class="result-card searchable" data-search="profile alphonce kwaru founder technology professional">
-            <span class="tag">Profile</span><h3>Alphonce Kwaru</h3>
-            <p>Technology-focused founder developing multidisciplinary capability across AI, software, cybersecurity and IT support.</p>
-            <a href="#about">Explore profile →</a>
-          </article>
-          <article class="result-card searchable" data-search="services ai data cloud cybersecurity software remote support">
-            <span class="tag">Services</span><h3>Technology solutions</h3>
-            <p>Explore AI and data, cybersecurity, cloud solutions, systems, software and remote support.</p>
-            <a href="#services">View services →</a>
-          </article>
-          <article class="result-card searchable" data-search="credentials google cloud nvidia developer machine learning training">
-            <span class="tag">Credentials</span><h3>Learning & technical foundation</h3>
-            <p>Discover current areas of learning, developer communities and technical development.</p>
-            <a href="#credentials">View foundation →</a>
-          </article>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- CLOCK FUNCTIONALITY -->
+
+<script>
+(function () {
+
+  function updateWorldClocks() {
+
+    const now = new Date();
+
+    const kenyaTime = document.getElementById("kenya-time");
+    const kenyaDate = document.getElementById("kenya-date");
+
+    const ukTime = document.getElementById("uk-time");
+    const ukDate = document.getElementById("uk-date");
+
+    if (!kenyaTime || !kenyaDate || !ukTime || !ukDate) {
+      return;
+    }
+
+    kenyaTime.textContent = new Intl.DateTimeFormat(
+      "en-KE",
+      {
+        timeZone: "Africa/Nairobi",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: false
+      }
+    ).format(now);
+
+    kenyaDate.textContent = new Intl.DateTimeFormat(
+      "en-KE",
+      {
+        timeZone: "Africa/Nairobi",
+        weekday: "long",
+        day: "numeric",
+        month: "long",
+        year: "numeric"
+      }
+    ).format(now);
+
+    ukTime.textContent = new Intl.DateTimeFormat(
+      "en-GB",
+      {
+        timeZone: "Europe/London",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: false
+      }
+    ).format(now);
+
+    ukDate.textContent = new Intl.DateTimeFormat(
+      "en-GB",
+      {
+        timeZone: "Europe/London",
+        weekday: "long",
+        day: "numeric",
+        month: "long",
+        year: "numeric"
+      }
+    ).format(now);
+
+  }
+
+  updateWorldClocks();
+
+  setInterval(updateWorldClocks, 1000);
+
+})();
+</script>
+
+<!-- END OF PART 3 --><!-- PART 4: ÆTeCH AI CUSTOMER SUPPORT -->
+
+<section id="ai-assistant" class="alt">
+  <div class="container">
+
+    <p class="eyebrow">Intelligent Customer Experience</p>
+
+    <h2>Meet the ÆTeCH AI Assistant</h2>
+
+    <p class="section-intro">
+      Need help understanding our services? Chat with our
+      website assistant for information about AI engineering,
+      software development, cybersecurity, cloud computing
+      and ways to contact our team.
+    </p>
+
+    <div class="grid">
+
+      <article class="card">
+        <div class="icon">🤖</div>
+        <h3>Intelligent Guidance</h3>
+        <p>
+          Get introductory information about our services,
+          technology solutions and development capabilities.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="icon">💬</div>
+        <h3>Customer Communication</h3>
+        <p>
+          Explore service options and continue your inquiry
+          through WhatsApp when you need further assistance.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="icon">🌐</div>
+        <h3>Digital Accessibility</h3>
+        <p>
+          Access the assistant directly from this website
+          without installing another application.
+        </p>
+      </article>
+
+    </div>
+
+    <div class="card" style="margin-top:35px">
+
+      <div style="display:flex;align-items:center;gap:15px;
+                  margin-bottom:20px">
+
+        <div style="font-size:38px">🤖</div>
+
+        <div>
+          <h3 style="margin:0">ÆTeCH Intelligence</h3>
+          <p style="color:#00d9ff;font-size:13px">
+            Website Customer Support
+          </p>
         </div>
-      </div>
-    </section>
 
-    <section class="section wrap" id="about">
-      <div class="section-head">
-        <p class="eyebrow">ÆTeCH Limited</p>
-        <h2>Built for the next layer of technology.</h2>
-        <p>ÆTeCH Limited is positioned as a technology support and solutions brand focused on dependable assistance, secure systems, modern infrastructure and practical technology adoption.</p>
       </div>
-      <div class="two-col">
-        <article class="card profile-card searchable" data-search="profile alphonce mwamachi kwaru founder artificial intelligence software engineering cybersecurity">
-          <p class="small-label">Professional profile</p>
-          <h3>Alphonce Mwamachi Kwaru</h3>
-          <p>Founder of ÆTeCH, building a multidisciplinary technical foundation across artificial intelligence, software development, cybersecurity, data and technology support.</p>
-          <p><strong>Focus:</strong> AI and machine learning · Software development · Cybersecurity · Cloud and networking · Data analytics · IT support.</p>
-          <div class="pill-row">
-            <span class="pill">AI & Machine Learning</span><span class="pill">Software</span>
-            <span class="pill">Cybersecurity</span><span class="pill">Data & Cloud</span>
-          </div>
-        </article>
-        <article class="card profile-card searchable" data-search="mission vision empower people optimize technology securing future slogan technology thinks builds protects">
-          <p class="small-label">Mission & direction</p>
-          <h3>Empowering people. Optimizing technology. Securing the future.</h3>
-          <p>Our direction is to develop useful, responsible and secure digital systems that help people and organizations solve real-world problems.</p>
-          <p><strong>Our principle:</strong> Technology that thinks. Builds. Protects.</p>
-          <a class="btn" href="#contact">Start a conversation ↗</a>
-        </article>
-      </div>
-    </section>
 
-    <section class="section wrap" id="services">
-      <div class="section-head">
-        <p class="eyebrow">What we solve</p>
-        <h2>Technology, engineered around your needs.</h2>
-        <p>Practical technical support and digital infrastructure services for individuals, startups, professionals and growing organizations.</p>
-      </div>
-      <div class="grid-3">
-        <article class="card searchable" data-search="IT support help desk troubleshooting device configuration technical guidance">
-          <span class="icon">◉</span><h3>IT Support</h3><p>Help desk, troubleshooting, device configuration and technical guidance.</p>
-        </article>
-        <article class="card searchable" data-search="cloud solutions cloud setup deployment account configuration">
-          <span class="icon">⌁</span><h3>Cloud Solutions</h3><p>Cloud setup, deployment concepts, account configuration and practical cloud learning.</p>
-        </article>
-        <article class="card searchable" data-search="cybersecurity security awareness defensive practices data protection system hardening">
-          <span class="icon">◇</span><h3>Cybersecurity</h3><p>Security awareness, defensive practices, data protection and system hardening guidance.</p>
-        </article>
-        <article class="card searchable" data-search="systems software installation configuration maintenance technical support">
-          <span class="icon">▣</span><h3>Systems & Software</h3><p>Installation, configuration, maintenance and software development support.</p>
-        </article>
-        <article class="card searchable" data-search="remote support remote troubleshooting monitoring technical assistance">
-          <span class="icon">⌘</span><h3>Remote Support</h3><p>Remote troubleshooting, monitoring concepts and technical assistance.</p>
-        </article>
-        <article class="card searchable" data-search="AI data artificial intelligence machine learning data analytics learning solutions">
-          <span class="icon">⬡</span><h3>AI & Data</h3><p>AI/ML and data-oriented technology, learning, prototyping and solution exploration.</p>
-        </article>
-        <article class="card searchable" data-search="tech consulting technology guidance training digital problem solving practical recommendations">
-          <span class="icon">✦</span><h3>Tech Consulting</h3><p>Technology guidance, training, digital problem-solving and practical recommendations.</p>
-        </article>
-        <article class="card searchable" data-search="networking connectivity network setup digital infrastructure">
-          <span class="icon">⌁</span><h3>Networking</h3><p>Networking fundamentals, connectivity concepts and digital infrastructure guidance.</p>
-        </article>
-        <article class="card searchable" data-search="AI engineering machine learning software engineering future development">
-          <span class="icon">✧</span><h3>AI Engineering</h3><p>Exploration and development of AI-powered applications, automation and intelligent software systems.</p>
-        </article>
-      </div>
-    </section>
+      <div id="aetech-chat-messages"
+           role="log"
+           aria-live="polite"
+           aria-label="Chat conversation"
+           style="height:300px;overflow-y:auto;
+                  background:#07111f;padding:18px;
+                  border-radius:8px;margin-bottom:15px">
 
-    <section class="section wrap" id="credentials">
-      <div class="section-head">
-        <p class="eyebrow">Professional profile</p>
-        <h2>Credentials & technical foundation.</h2>
-        <p>A developing portfolio of training, hands-on learning and developer community participation.</p>
+        <div style="margin-bottom:15px">
+          <strong style="color:#00d9ff">
+            ÆTeCH Assistant
+          </strong>
+
+          <p>
+            Welcome to ÆTeCH! 👋 I can help you explore our
+            services, learn about our AI development project,
+            or contact our team. What would you like to know?
+          </p>
+        </div>
+
       </div>
-      <div class="credentials">
-        <article class="card credential searchable" data-search="artificial intelligence machine learning engineering training course">
-          <span class="icon">AI</span><div><h3>Artificial Intelligence & Machine Learning</h3><p>Ongoing engi
+
+      <div style="display:flex;flex-wrap:wrap;gap:8px;
+                  margin-bottom:15px">
+
+        <button type="button" class="btn btn-outline"
+                onclick="aetechQuickQuestion('services')">
+          Our Services
+        </button>
+
+        <button type="button" class="btn btn-outline"
+                onclick="aetechQuickQuestion('artificial intelligence')">
+          AI Solutions
+        </button>
+
+        <button type="button" class="btn btn-outline"
+                onclick="aetechQuickQuestion('pricing')">
+          Pricing
+        </button>
+
+        <button type="button" class="btn btn-outline"
+                onclick="aetechQuickQuestion('contact')">
+          Contact Us
+        </button>
+
+      </div>
+
+      <form id="aetech-chat-form"
+            style="display:flex;gap:10px;flex-wrap:wrap">
+
+        <label for="aetech-chat-input"
+               style="position:absolute;left:-9999px">
+          Type your message
+        </label>
+
+        <input id="aetech-chat-input"
+               type="text"
+               maxlength="1000"
+               placeholder="Ask ÆTeCH a question..."
+               required
+               autocomplete="off"
+               style="flex:1;min-width:180px;
+                      padding:14px;border-radius:7px;
+                      border:1px solid rgba(255,255,255,.2);
+                      background:#07111f;color:white">
+
+        <button class="btn btn-primary" type="submit">
+          Send
+        </button>
+
+      </form>
+
+      <p style="color:#a9b8cb;font-size:12px;margin-top:15px">
+        This is a basic website assistant. It does not
+        automatically access live company records or an
+        external AI model. Do not enter passwords, payment
+        details or sensitive personal information.
+      </p>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- WHATSAPP CONTACT INTEGRATION -->
+
+<section id="whatsapp">
+  <div class="container">
+
+    <p class="eyebrow">Let's Talk</p>
+
+    <h2>Continue Your Conversation on WhatsApp</h2>
+
+    <p class="section-intro">
+      Have a project idea, business inquiry or technical
+      question? Contact ÆTeCH through WhatsApp to discuss
+      your requirements with our team.
+    </p>
+
+    <div class="grid">
+
+      <article class="card">
+
+        <div class="icon">📱</div>
+
+        <h3>WhatsApp Contact 1</h3>
+
+        <p>+254 795 963 615</p>
+
+        <p style="margin-top:20px">
+          <a class="btn btn-primary"
+             href="https://wa.me/254795963615"
+             target="_blank"
+             rel="noopener noreferrer">
+            Chat on WhatsApp
+          </a>
+        </p>
+
+      </article>
+
+      <article class="card">
+
+        <div class="icon">📞</div>
+
+        <h3>WhatsApp Contact 2</h3>
+
+        <p>+254 786 844 041</p>
+
+        <p style="margin-top:20px">
+          <a class="btn btn-primary"
+             href="https://wa.me/254786844041"
+             target="_blank"
+             rel="noopener noreferrer">
+            Chat on WhatsApp
+          </a>
+        </p>
+
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- CHATBOT JAVASCRIPT -->
+
+<script>
+(function () {
+
+  const form = document.getElementById("aetech-chat-form");
+  const input = document.getElementById("aetech-chat-input");
+  const messages = document.getElementById("aetech-chat-messages");
+
+  if (!form || !input || !messages) return;
+
+  function addMessage(sender, text, isBot) {
+
+    const wrapper = document.createElement("div");
+
+    wrapper.style.marginBottom = "18px";
+
+    const title = document.createElement("strong");
+
+    title.textContent = sender;
+    title.style.color = isBot ? "#00d9ff" : "#ffffff";
+
+    const paragraph = document.createElement("p");
+
+    // Display text safely instead of interpreting HTML.
+    paragraph.textContent = text;
+
+    wrapper.appendChild(title);
+    wrapper.appendChild(paragraph);
+
+    messages.appendChild(wrapper);
+
+    messages.scrollTop = messages.scrollHeight;
+  }
+
+  function getReply(question) {
+
+    const q = question.toLowerCase();
+
+    if (
+      q.includes("hello") ||
+      q.includes("hi") ||
+      q.includes("hey") ||
+      q.includes("habari")
+    ) {
+      return "Hello and welcome to ÆTeCH! How can I help you explore our technology services today?";
+    }
+
+    if (
+      q.includes("service") ||
+      q.includes("offer") ||
+      q.includes("what do you do")
+    ) {
+      return "ÆTeCH focuses on AI and machine learning, software development, cybersecurity, data protection, cloud engineering, data analytics, IT support and technology consulting.";
+    }
+
+    if (
+      q.includes("artificial intelligence") ||
+      q.includes("machine learning") ||
+      q.includes(" ai ") ||
+      q === "ai"
+    ) {
+      return "Our AI development direction includes intelligent assistants, conversational interfaces, AI integrations, machine-learning experimentation and automation. Tell us about your use case so our team can discuss your requirements.";
+    }
+
+    if (
+      q.includes("website") ||
+      q.includes("software") ||
+      q.includes("application") ||
+      q.includes("app")
+    ) {
+      return "We focus on website development, web applications, backend services, APIs and software prototypes. Please describe the solution you want to build.";
+    }
+
+    if (
+      q.includes("security") ||
+      q.includes("cybersecurity") ||
+      q.includes("privacy") ||
+      q.includes("data protection")
+    ) {
+      return "We provide cybersecurity and data-protection guidance, including secure development practices and privacy-conscious system design. Specific services and compliance requirements must be assessed for each project.";
+    }
+
+    if (
+      q.includes("cloud") ||
+      q.includes("google") ||
+      q.includes("nvidia")
+    ) {
+      return "Our technology learning and development interests include Google Cloud, AI development, data analytics and NVIDIA developer technologies. Explore the developer links in our Technology Ecosystem section.";
+    }
+
+    if (
+      q.includes("price") ||
+      q.includes("pricing") ||
+      q.includes("cost") ||
+      q.includes("quote")
+    ) {
+      return "Project prices depend on the requirements, complexity, scope and delivery timeline. Please send us your project description on WhatsApp to discuss a suitable quotation.";
+    }
+
+    if (
+      q.includes("contact") ||
+      q.includes("whatsapp") ||
+      q.includes("phone") ||
+      q.includes("call")
+    ) {
+      return "You can contact ÆTeCH through WhatsApp at +254795963615 or +254786844041. Use the WhatsApp buttons on this page to start a conversation.";
+    }
+
+    if (
+      q.includes("location") ||
+      q.includes("where") ||
+      q.includes("kenya") ||
+      q.includes("mombasa")
+    ) {
+      return "ÆTeCH is associated with Mombasa, Kenya, and aims to support suitable remote technology engagements. Please contact our team to discuss your location and project.";
+    }
+
+    if (
+      q.includes("founder") ||
+      q.includes("alphonce") ||
+      q.includes("company")
+    ) {
+      return "ÆTeCH is the technology venture of Alphonce Mwamachi Kwaru, focused on developing AI systems, software and digital technology solutions.";
+    }
+
+    if (
+      q.includes("price") ||
+      q.includes("hire") ||
+      q.includes("project") ||
+      q.includes("business")
+    ) {
+      return "Thank you for your interest in working with ÆTeCH. Tell us about your project, expected outcome and requirements, or contact us directly through WhatsApp.";
+    }
+
+    return "Thank you for contacting ÆTeCH! I can provide general guidance about our services. For detailed project discussions or questions that require our team's review, please contact us through WhatsApp at +254795963615 or +254786844041.";
+  }
+
+  form.addEventListener("submit", function (event) {
+
+    event.preventDefault();
+
+    const question = input.value.trim();
+
+    if (!question) return;
+
+    addMessage("You", question, false);
+
+    input.value = "";
+
+    window.setTimeout(function () {
+      addMessage(
+        "ÆTeCH Assistant",
+        getReply(question),
+        true
+      );
+    }, 350);
+
+  });
+
+  window.aetechQuickQuestion = function (question) {
+
+    input.value = question;
+    form.requestSubmit();
+
+  };
+
+})();
+</script>
+
+<!-- END OF PART 4 --><!-- PART 5: COMPANY CONTACT AND PROFESSIONAL FOOTER -->
+
+<section id="contact" class="alt">
+  <div class="container">
+
+    <p class="eyebrow">Connect With ÆTeCH</p>
+
+    <h2>Let's Build the Future Together</h2>
+
+    <p class="section-intro">
+      Have a business idea, an AI project, a software
+      development requirement or a technology challenge?
+      Contact ÆTeCH to discuss your needs and explore
+      potential solutions.
+    </p>
+
+    <div class="grid">
+
+      <!-- COMPANY INFORMATION -->
+
+      <article class="card">
+
+        <div class="icon">🏢</div>
+
+        <h3>Our Company</h3>
+
+        <p>
+          <strong>ÆTeCH Limited Company</strong>
+        </p>
+
+        <p>
+          ÆTeCH Artificial Intelligence Software System
+        </p>
+
+        <p style="margin-top:15px">
+          <strong>Mission:</strong><br>
+          Empowering people, optimizing technology and
+          securing the future.
+        </p>
+
+        <p style="margin-top:15px">
+          <strong>Slogan:</strong><br>
+          Technology that thinks. Builds. Protects.
+        </p>
+
+      </article>
+
+      <!-- CONTACT NUMBERS -->
+
+      <article class="card">
+
+        <div class="icon">📞</div>
+
+        <h3>Contact Our Team</h3>
+
+        <p>
+          <strong>Phone 1:</strong><br>
+          <a href="tel:+254795963615">
+            +254 795 963 615
+          </a>
+        </p>
+
+        <p style="margin-top:15px">
+          <strong>Phone 2:</strong><br>
+          <a href="tel:+254786844041">
+            +254 786 844 041
+          </a>
+        </p>
+
+        <p style="margin-top:20px">
+          <a class="btn btn-primary"
+             href="https://wa.me/254795963615"
+             target="_blank"
+             rel="noopener noreferrer">
+            Contact Us on WhatsApp
+          </a>
+        </p>
+
+      </article>
+
+      <!-- PROFESSIONAL PROFILES -->
+
+      <article class="card">
+
+        <div class="icon">🌐</div>
+
+        <h3>Our Digital Presence</h3>
+
+        <p>
+          Explore our software development work,
+          professional technology resources and
+          developer communities.
+        </p>
+
+        <p style="margin-top:15px">
+          <a href="https://github.com/alphoncek"
+             target="_blank"
+             rel="noopener noreferrer">
+            GitHub Developer Profile →
+          </a>
+        </p>
+
+        <p style="margin-top:12px">
+          <a href="https://developers.google.com/"
+             target="_blank"
+             rel="noopener noreferrer">
+            Google Developers →
+          </a>
+        </p>
+
+        <p style="margin-top:12px">
+          <a href="https://developer.nvidia.com/"
+             target="_blank"
+             rel="noopener noreferrer">
+            NVIDIA Developer →
+          </a>
+        </p>
+
+        <p style="margin-top:12px">
+          <a href="https://alphoncek.github.io/aetech-limited-website-/"
+             target="_blank"
+             rel="noopener noreferrer">
+            ÆTeCH Website →
+          </a>
+        </p>
+
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- FINAL COMPANY STATEMENT -->
+
+<section>
+  <div class="container" style="text-align:center">
+
+    <p class="eyebrow">Our Commitment</p>
+
+    <h2>
+      Technology That Thinks.<br>
+      <span class="highlight">
+        Builds. Protects.
+      </span>
+    </h2>
+
+    <p class="section-intro" style="margin:20px auto">
+
+      We believe technology should solve meaningful
+      problems, support people, strengthen organizations
+      and create opportunities for future generations.
+
+      ÆTeCH is committed to learning, engineering,
+      responsible innovation and developing digital
+      solutions for an increasingly connected world.
+
+    </p>
+
+    <div class="actions"
+         style="justify-content:center">
+
+      <a class="btn btn-primary"
+         href="https://wa.me/254795963615"
+         target="_blank"
+         rel="noopener noreferrer">
+        Start a Conversation
+      </a>
+
+      <a class="btn btn-outline"
+         href="#home">
+        Return to Top ↑
+      </a>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- PROFESSIONAL FOOTER -->
+
+<footer>
+
+  <div class="container">
+
+    <a href="#home"
+       class="logo"
+       style="display:inline-block;margin-bottom:15px">
+      ÆTeCH
+    </a>
+
+    <p>
+      ÆTeCH Limited Company and ÆTeCH Artificial
+      Intelligence Software System
+    </p>
+
+    <p style="margin-top:10px">
+      Empowering people, optimizing technology and
+      securing the future.
+    </p>
+
+    <p style="margin-top:15px">
+      <a href="#home">Home</a> ·
+      <a href="#about">About</a> ·
+      <a href="#services">Services</a> ·
+      <a href="#innovation">Innovation</a> ·
+      <a href="#ai-assistant">AI Assistant</a> ·
+      <a href="#contact">Contact</a>
+    </p>
+
+    <p style="margin-top:20px">
+      © <span id="aetech-year"></span>
+      ÆTeCH. All rights reserved.
+    </p>
+
+    <p style="margin-top:8px;font-size:11px">
+      Website development and service capabilities
+      are subject to project scope, implementation,
+      testing and availability.
+    </p>
+
+  </div>
+
+</footer>
+
+
+<!-- AUTOMATIC COPYRIGHT YEAR -->
+
+<script>
+(function () {
+
+  const yearElement = document.getElementById("aetech-year");
+
+  if (yearElement) {
+    yearElement.textContent = new Date().getFullYear();
+  }
+
+})();
+</script>
+
+
+</main>
+</body>
+</html>
