@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#06101d">
   <meta name="description" content="ÆTeCH Limited Company and ÆTeCH Artificial Intelligence Software System — AI, software, cybersecurity, cloud, data and technology support.">
-  <title>ÆTeCH LIMITED | Intelligent Future Technologies</title>
+  <title>ÆTeCH Limited | AI, Software, Security & Global Connectivity</title>
   <style>
     :root {
       --bg: #050b14;
@@ -131,6 +131,31 @@
       .card { min-height: 0; }
     }
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; } }
+
+    /* Restored ÆTeCH assistant and global connectivity components */
+    .world-panel, .assistant-panel { border:1px solid var(--line); background:linear-gradient(145deg,rgba(8,23,40,.96),rgba(5,14,25,.96)); border-radius:18px; padding:clamp(18px,3vw,28px); }
+    .world-clocks { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; margin-top:20px; }
+    .world-clock { padding:20px; border:1px solid #17445a; border-radius:14px; background:#061321; }
+    .world-clock .flag { font-size:1.8rem; margin-right:8px; }
+    .world-clock .time { font-size:clamp(1.7rem,4vw,2.5rem); font-weight:850; letter-spacing:.04em; color:var(--cyan); margin:10px 0 2px; font-variant-numeric:tabular-nums; }
+    .world-clock .date, .world-clock .zone { color:var(--muted); font-size:.86rem; }
+    .country-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:9px; margin-top:18px; }
+    .country-chip { display:flex; align-items:center; gap:8px; border:1px solid var(--line); background:#071626; border-radius:10px; padding:10px; font-size:.84rem; }
+    .country-chip span { font-size:1.25rem; }
+    .assistant-layout { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.2fr); gap:18px; align-items:start; }
+    .assistant-intro { color:var(--muted); }
+    .chat-log { min-height:220px; max-height:340px; overflow:auto; padding:14px; border:1px solid var(--line); border-radius:12px; background:#030b14; display:flex; flex-direction:column; gap:10px; }
+    .chat-msg { max-width:92%; padding:10px 12px; border-radius:12px; white-space:pre-wrap; overflow-wrap:anywhere; font-size:.9rem; }
+    .chat-msg.bot { align-self:flex-start; border:1px solid #16455a; background:#0a1d2c; color:#e6f6ff; }
+    .chat-msg.user { align-self:flex-end; background:#063d52; border:1px solid #087b9d; color:white; }
+    .chat-form { display:flex; gap:8px; margin-top:10px; }
+    .chat-input { min-width:0; flex:1; border:1px solid var(--line); border-radius:10px; background:#030b14; color:var(--text); padding:12px; }
+    .chat-send { border:1px solid #0783a7; border-radius:10px; padding:10px 15px; color:#00121b; font-weight:850; background:var(--cyan); cursor:pointer; }
+    .chat-hints { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
+    .chat-hints button { cursor:pointer; border:1px solid var(--line); border-radius:999px; padding:7px 10px; color:#c4e8f5; background:#071626; font-size:.78rem; }
+    .chat-disclaimer { color:var(--muted); font-size:.77rem; margin:12px 0 0; }
+    @media(max-width:760px){.world-clocks,.assistant-layout{grid-template-columns:1fr}.country-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.chat-form{flex-direction:column}.chat-send{width:100%}}
+
   </style>
 </head>
 <body>
@@ -142,6 +167,8 @@
         <a href="#about">Company</a>
         <a href="#services">Services</a>
         <a href="#credentials">Credentials</a>
+        <a href="#global-connectivity">Global</a>
+        <a href="#assistant">AI Assistant</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
@@ -261,41 +288,4 @@
       </div>
       <div class="credentials">
         <article class="card credential searchable" data-search="artificial intelligence machine learning engineering training course">
-          <span class="icon">AI</span><div><h3>Artificial Intelligence & Machine Learning</h3><p>Ongoing engineering-focused learning in AI/ML concepts and practical applications.</p></div>
-        </article>
-        <article class="card credential searchable" data-search="google cloud developer program cloud AI Gemini Vertex BigQuery">
-          <span class="icon">G</span><div><h3>Google Developer Program & Google Cloud learning</h3><p>Hands-on learning across cloud, Gemini, AI agents, data workflows and developer labs.</p></div>
-        </article>
-        <article class="card credential searchable" data-search="NVIDIA developer program member AI computing community">
-          <span class="icon">N</span><div><h3>NVIDIA Developer Program</h3><p>Developer community participation and exploration of AI and accelerated computing technologies.</p></div>
-        </article>
-        <article class="card credential searchable" data-search="cybersecurity data protection Cisco IBM AWS Microsoft training">
-          <span class="icon">SEC</span><div><h3>Cybersecurity & data protection learning</h3><p>Training and study in security awareness, cloud security, cybersecurity fundamentals and data protection.</p></div>
-        </article>
-      </div>
-      <p class="notice">Transparency note: This page describes ongoing learning and areas of focus. Add only verified certificates, completed qualifications and official membership links when publishing credential claims.</p>
-    </section>
-
-    <section class="section wrap" id="contact">
-      <div class="section-head">
-        <p class="eyebrow">Connect</p>
-        <h2>Let’s build something reliable.</h2>
-        <p>For technology discussions, service enquiries and professional collaboration, use the contact details below.</p>
-      </div>
-      <div class="contact-grid">
-        <div class="contact-item"><span>Phone</span><strong><a href="tel:+254795963615">+254 795 963 615</a></strong></div>
-        <div class="contact-item"><span>Email</span><strong><a href="mailto:mwamachikwaru@gmail.com">mwamachikwaru@gmail.com</a></strong></div>
-        <div class="contact-item"><span>Location</span><strong>Mombasa, Kenya</strong><p style="margin:5px 0 0;color:var(--muted);font-size:.82rem">Remote collaboration and digital support where appropriate.</p></div>
-        <div class="contact-item"><span>Website & project links</span><strong><a href="https://github.com/alphoncek" target="_blank" rel="noopener noreferrer">GitHub · alphoncek ↗</a></strong><p style="margin:5px 0 0;color:var(--muted);font-size:.82rem">Replace or supplement with your official company website and verified project URLs.</p></div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="wrap footer-inner">
-      <span>© <span id="year"></span> ÆTeCH Limited Company. All rights reserved.</span>
-      <span>Technology that thinks. Builds. Protects.</span>
-    </div>
-  </footer>
-
- 
+          <span class="icon">AI</span><div><h3>Artificial Intelligence & Machine Learning</h3><p>Ongoing engi
