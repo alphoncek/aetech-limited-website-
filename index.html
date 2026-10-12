@@ -1,811 +1,301 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ÆTeCH | Intelligent Future Technologies</title>
-  <meta name="description" content="ÆTeCH Limited Company and ÆTeCH Artificial Intelligence Software System Company - futuristic intelligent digital solutions and AI-powered innovation." />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#06101d">
+  <meta name="description" content="ÆTeCH Limited Company and ÆTeCH Artificial Intelligence Software System — AI, software, cybersecurity, cloud, data and technology support.">
+  <title>ÆTeCH LIMITED | Intelligent Future Technologies</title>
   <style>
     :root {
-      --bg: #060914;
-      --bg2: #0d1324;
-      --card: rgba(255,255,255,0.06);
-      --card-border: rgba(255,255,255,0.12);
-      --text: #eaf2ff;
-      --muted: #9fb3d9;
-      --primary: #5ce1e6;
-      --secondary: #7b61ff;
-      --accent: #00ffc6;
-      --danger: #ff6b81;
-      --shadow: 0 10px 40px rgba(0,0,0,0.35);
-      --glow: 0 0 30px rgba(92,225,230,0.25);
-      --radius: 20px;
-      --max: 1200px;
+      --bg: #050b14;
+      --panel: #081728;
+      --panel-2: #0b1c30;
+      --line: #163650;
+      --cyan: #00d9ff;
+      --cyan-soft: #70eaff;
+      --text: #f2f7ff;
+      --muted: #a4b5c9;
+      --radius: 16px;
+      --max: 1120px;
     }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      scroll-behavior: smooth;
-    }
-
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
-      font-family: Arial, Helvetica, sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(123,97,255,0.18), transparent 28%),
-        radial-gradient(circle at top right, rgba(92,225,230,0.14), transparent 30%),
-        linear-gradient(180deg, #04070f 0%, #09111f 45%, #050812 100%);
+      margin: 0;
       color: var(--text);
-      line-height: 1.6;
-      overflow-x: hidden;
+      background:
+        radial-gradient(ellipse at 85% 5%, rgba(0,217,255,.09), transparent 32rem),
+        radial-gradient(ellipse at 5% 40%, rgba(20,85,145,.12), transparent 35rem),
+        var(--bg);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
     }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-      background-size: 40px 40px;
-      pointer-events: none;
-      opacity: 0.15;
-      z-index: 0;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    .container {
-      width: min(92%, var(--max));
-      margin: auto;
-      position: relative;
-      z-index: 1;
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
+    a { color: var(--cyan-soft); text-decoration: none; }
+    a:hover { color: white; }
+    button, input { font: inherit; }
+    .wrap { width: min(var(--max), calc(100% - 32px)); margin-inline: auto; }
+    .topbar {
+      position: sticky; top: 0; z-index: 20;
+      background: rgba(3, 10, 19, .92);
       backdrop-filter: blur(14px);
-      background: rgba(3, 8, 20, 0.75);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid rgba(42, 113, 151, .28);
     }
-
     .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 16px 0;
-      gap: 16px;
+      min-height: 68px; display: flex; align-items: center;
+      justify-content: space-between; gap: 18px;
     }
-
-    .logo {
-      font-size: 1.4rem;
-      font-weight: bold;
-      letter-spacing: 1px;
-      color: #fff;
-    }
-
-    .logo span {
-      color: var(--primary);
-      text-shadow: 0 0 15px rgba(92,225,230,0.35);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-
-    .nav-links a {
-      color: var(--muted);
-      font-size: 0.95rem;
-      transition: 0.3s ease;
-    }
-
-    .nav-links a:hover {
-      color: var(--primary);
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 14px 22px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.12);
-      background: linear-gradient(135deg, rgba(92,225,230,0.15), rgba(123,97,255,0.12));
-      color: #fff;
-      font-weight: bold;
-      box-shadow: var(--glow);
-      transition: 0.3s ease;
-      cursor: pointer;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 0 35px rgba(92,225,230,0.35);
-    }
-
-    .btn.primary {
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      color: #08111f;
-      border: none;
-    }
-
-    .hero {
-      position: relative;
-      min-height: 95vh;
-      display: flex;
-      align-items: center;
-      padding: 90px 0 60px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 40px;
-      align-items: center;
-    }
-
+    .brand { font-size: .94rem; font-weight: 900; letter-spacing: .16em; color: #f4f9ff; }
+    .brand span { color: var(--cyan); }
+    .navlinks { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+    .navlinks a { color: #c6d7e8; font-size: .82rem; }
+    .navlinks a:hover { color: var(--cyan); }
+    .menu-toggle { display: none; background: transparent; color: white; border: 1px solid var(--line); border-radius: 9px; padding: 7px 10px; }
+    .hero { padding: 76px 0 56px; }
     .eyebrow {
-      display: inline-block;
-      padding: 8px 14px;
-      border: 1px solid rgba(92,225,230,0.25);
-      border-radius: 999px;
-      color: var(--primary);
-      background: rgba(92,225,230,0.06);
-      margin-bottom: 18px;
-      font-size: 0.9rem;
-    }
-
-    h1 {
-      font-size: clamp(2.4rem, 6vw, 5rem);
-      line-height: 1.05;
-      margin-bottom: 18px;
-    }
-
-    .hero p {
-      color: var(--muted);
-      font-size: 1.08rem;
-      max-width: 680px;
-      margin-bottom: 28px;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-    }
-
-    .hero-visual {
-      position: relative;
-      min-height: 520px;
-      border-radius: 30px;
-      border: 1px solid rgba(255,255,255,0.1);
-      background:
-        radial-gradient(circle at 30% 30%, rgba(92,225,230,0.25), transparent 25%),
-        radial-gradient(circle at 70% 40%, rgba(123,97,255,0.22), transparent 28%),
-        linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
-      box-shadow: var(--shadow);
-      overflow: hidden;
-    }
-
-    .hero-visual::before,
-    .hero-visual::after {
-      content: "";
-      position: absolute;
-      inset: auto;
-      border-radius: 50%;
-      filter: blur(10px);
-    }
-
-    .hero-visual::before {
-      width: 240px;
-      height: 240px;
-      top: 10%;
-      left: 12%;
-      background: rgba(92,225,230,0.18);
-      animation: float 8s ease-in-out infinite;
-    }
-
-    .hero-visual::after {
-      width: 200px;
-      height: 200px;
-      bottom: 8%;
-      right: 10%;
-      background: rgba(123,97,255,0.18);
-      animation: float 7s ease-in-out infinite reverse;
-    }
-
-    .hud {
-      position: absolute;
-      inset: 0;
-      padding: 24px;
-    }
-
-    .panel {
-      position: absolute;
-      border-radius: 18px;
-      background: rgba(5,12,28,0.55);
-      border: 1px solid rgba(255,255,255,0.1);
-      backdrop-filter: blur(8px);
-      box-shadow: var(--shadow);
-      color: #fff;
-    }
-
-    .panel.top {
-      top: 24px;
-      left: 24px;
-      right: 24px;
-      padding: 18px;
-      display: flex;
-      justify-content: space-between;
-      gap: 15px;
-    }
-
-    .panel.small {
-      padding: 16px;
-      width: 180px;
-    }
-
-    .panel.left {
-      left: 24px;
-      bottom: 24px;
-    }
-
-    .panel.right {
-      right: 24px;
-      bottom: 24px;
-    }
-
-    .metric {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: var(--primary);
-    }
-
-    section {
-      padding: 90px 0;
-      position: relative;
-      z-index: 1;
-    }
-
-    .section-title {
-      font-size: clamp(1.8rem, 4vw, 3rem);
-      margin-bottom: 16px;
-    }
-
-    .section-subtitle {
-      color: var(--muted);
-      max-width: 760px;
-      margin-bottom: 40px;
-    }
-
-    .grid-2, .grid-3, .grid-4 {
-      display: grid;
-      gap: 24px;
-    }
-
-    .grid-2 {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    .grid-3 {
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-    .grid-4 {
-      grid-template-columns: repeat(4, 1fr);
-    }
-
-    .card {
-      background: var(--card);
-      border: 1px solid var(--card-border);
-      border-radius: var(--radius);
-      padding: 26px;
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(10px);
-      transition: 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(92,225,230,0.08), transparent 40%, rgba(123,97,255,0.06));
-      pointer-events: none;
-    }
-
-    .card:hover {
-      transform: translateY(-6px);
-      border-color: rgba(92,225,230,0.35);
-    }
-
-    .card h3 {
-      margin-bottom: 12px;
-      font-size: 1.2rem;
-    }
-
-    .card p {
-      color: var(--muted);
-    }
-
-    .icon {
-      width: 52px;
-      height: 52px;
-      border-radius: 14px;
-      display: grid;
-      place-items: center;
-      margin-bottom: 16px;
-      background: linear-gradient(135deg, rgba(92,225,230,0.18), rgba(123,97,255,0.18));
-      border: 1px solid rgba(255,255,255,0.1);
-      font-size: 1.2rem;
-      box-shadow: var(--glow);
-    }
-
-    .pathway {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-top: 20px;
-    }
-
-    .pill {
-      padding: 10px 16px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.08);
-      color: var(--muted);
-      transition: 0.3s ease;
-    }
-
-    .pill:hover {
-      color: var(--primary);
-      border-color: rgba(92,225,230,0.3);
-    }
-
-    .split-feature {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 28px;
-      align-items: center;
-    }
-
-    .feature-visual {
-      min-height: 380px;
-      border-radius: 28px;
-      border: 1px solid rgba(255,255,255,0.12);
-      background:
-        radial-gradient(circle at 25% 25%, rgba(0,255,198,0.20), transparent 22%),
-        radial-gradient(circle at 75% 30%, rgba(123,97,255,0.20), transparent 20%),
-        linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
-      box-shadow: var(--shadow);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .feature-visual .ring {
-      position: absolute;
-      border: 1px solid rgba(92,225,230,0.25);
-      border-radius: 50%;
-      animation: spin 14s linear infinite;
-    }
-
-    .ring.r1 {
-      width: 240px;
-      height: 240px;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-
-    .ring.r2 {
-      width: 160px;
-      height: 160px;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      animation-direction: reverse;
-    }
-
-    .ring.r3 {
-      width: 90px;
-      height: 90px;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      animation-duration: 8s;
-    }
-
-    .center-core {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      box-shadow: 0 0 25px rgba(92,225,230,0.75);
-    }
-
-    .list {
-      display: grid;
-      gap: 14px;
-      margin-top: 20px;
-    }
-
-    .list li {
-      list-style: none;
-      color: var(--muted);
-      padding-left: 22px;
-      position: relative;
-    }
-
-    .list li::before {
-      content: "▹";
-      color: var(--primary);
-      position: absolute;
-      left: 0;
-    }
-
-    .cta-banner {
-      padding: 34px;
-      border-radius: 28px;
-      background: linear-gradient(135deg, rgba(92,225,230,0.12), rgba(123,97,255,0.12));
-      border: 1px solid rgba(255,255,255,0.12);
-      box-shadow: var(--shadow);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    footer {
-      padding: 40px 0 50px;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      color: var(--muted);
-      position: relative;
-      z-index: 1;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      gap: 24px;
-    }
-
-    /* Chatbot */
-    .chatbot-toggle {
-      position: fixed;
-      right: 22px;
-      bottom: 22px;
-      width: 64px;
-      height: 64px;
-      border: none;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      color: #06111f;
-      font-size: 1.5rem;
-      font-weight: bold;
-      cursor: pointer;
-      box-shadow: 0 10px 35px rgba(92,225,230,0.35);
-      z-index: 99;
-    }
-
-    .chatbot {
-      position: fixed;
-      right: 22px;
-      bottom: 100px;
-      width: 360px;
-      max-width: calc(100vw - 24px);
-      height: 520px;
-      background: rgba(7, 13, 28, 0.95);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 22px;
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(18px);
-      display: none;
-      flex-direction: column;
-      overflow: hidden;
-      z-index: 100;
-    }
-
-    .chatbot.active {
-      display: flex;
-    }
-
-    .chat-header {
-      padding: 16px;
-      background: linear-gradient(135deg, rgba(92,225,230,0.18), rgba(123,97,255,0.18));
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .chat-header h3 {
-      margin-bottom: 4px;
-    }
-
-    .chat-header p {
-      color: #d9e6ff;
-      font-size: 0.9rem;
-    }
-
-    .chat-body {
-      flex: 1;
-      padding: 16px;
-      overflow-y: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .msg {
-      max-width: 85%;
-      padding: 12px 14px;
-      border-radius: 16px;
-      font-size: 0.95rem;
-    }
-
-    .bot {
-      align-self: flex-start;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .user {
-      align-self: flex-end;
-      background: linear-gradient(135deg, rgba(92,225,230,0.25), rgba(123,97,255,0.25));
-      border: 1px solid rgba(92,225,230,0.18);
-    }
-
-    .chat-quick {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      padding: 0 16px 12px;
-    }
-
-    .quick-btn {
-      padding: 8px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.1);
-      background: rgba(255,255,255,0.05);
-      color: var(--muted);
-      cursor: pointer;
-      font-size: 0.85rem;
-    }
-
-    .quick-btn:hover {
-      color: var(--primary);
-      border-color: rgba(92,225,230,0.3);
-    }
-
-    .chat-input-wrap {
-      display: flex;
-      gap: 10px;
-      padding: 14px;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      background: rgba(255,255,255,0.03);
-    }
-
-    .chat-input {
-      flex: 1;
-      background: rgba(255,255,255,0.06);
-      color: #fff;
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 14px;
-      padding: 12px 14px;
-      outline: none;
-    }
-
-    .send-btn {
-      border: none;
-      padding: 12px 16px;
-      border-radius: 14px;
-      cursor: pointer;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      color: #06111f;
-      font-weight: bold;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-18px); }
-    }
-
-    @keyframes spin {
-      from { transform: translate(-50%, -50%) rotate(0deg); }
-      to { transform: translate(-50%, -50%) rotate(360deg); }
-    }
-
-    @media (max-width: 980px) {
-      .hero-grid,
-      .split-feature,
-      .grid-2,
-      .grid-3,
-      .grid-4,
-      .footer-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero {
-        min-height: auto;
-      }
-
-      .hero-visual {
-        min-height: 420px;
-      }
-
-      .nav {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .nav-links {
-        width: 100%;
-      }
-
-      .cta-banner {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
-
-    @media (max-width: 640px) {
-      h1 {
-        font-size: 2.3rem;
-      }
-
-      .chatbot {
-        right: 12px;
-        bottom: 88px;
-        width: calc(100vw - 24px);
-        height: 72vh;
-      }
-
-      .chatbot-toggle {
-        right: 12px;
-        bottom: 12px;
-      }
-
-      .panel.top {
-        flex-direction: column;
-      }
-
-      .panel.small {
-        width: 150px;
-      }
-    }
+      color: var(--cyan); text-transform: uppercase; letter-spacing: .2em;
+      font-size: .72rem; font-weight: 800; margin: 0 0 12px;
+    }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { font-size: clamp(2.2rem, 6vw, 4.8rem); line-height: 1.08; letter-spacing: -.045em; max-width: 850px; margin-bottom: 20px; }
+    h1 .accent { color: var(--cyan); }
+    .lead { max-width: 730px; color: #b2c2d5; font-size: 1.04rem; }
+    .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 26px; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 11px 16px; border-radius: 10px; border: 1px solid #17617c;
+      background: linear-gradient(135deg, rgba(0,217,255,.14), rgba(8,30,51,.65));
+      color: #e8fbff; font-weight: 750; font-size: .88rem;
+    }
+    .btn.primary { background: var(--cyan); color: #00121c; border-color: var(--cyan); }
+    .btn:hover { transform: translateY(-1px); filter: brightness(1.08); }
+    .search-section { padding: 28px 0 54px; }
+    .search-shell { border: 1px solid #15506b; background: rgba(6, 21, 37, .82); border-radius: 20px; padding: clamp(20px, 4vw, 34px); box-shadow: 0 18px 60px rgba(0,0,0,.18); }
+    .search-title { font-size: clamp(1.6rem, 4vw, 2.45rem); line-height: 1.2; margin-bottom: 12px; }
+    .search-copy { color: var(--muted); max-width: 650px; font-size: .93rem; }
+    .searchbar { display: flex; align-items: center; gap: 10px; margin-top: 22px; padding: 7px 9px 7px 15px; border: 1px solid #147391; background: #061321; border-radius: 13px; }
+    .searchbar .glass { color: var(--cyan); font-size: 1.2rem; }
+    .searchbar input { flex: 1; min-width: 0; background: transparent; color: white; border: 0; outline: 0; padding: 8px 0; }
+    .searchbar input::placeholder { color: #7890a7; }
+    .searchbar button { border: 0; border-radius: 8px; background: #09283a; color: var(--cyan); padding: 8px 12px; cursor: pointer; font-size: .73rem; font-weight: 900; letter-spacing: .08em; }
+    .search-meta { color: #8da7be; font-size: .75rem; margin: 10px 2px 18px; }
+    .search-results { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .result-card, .card {
+      border: 1px solid var(--line); border-radius: 13px;
+      background: linear-gradient(145deg, rgba(9,28,48,.95), rgba(5,15,27,.98));
+      padding: 17px;
+    }
+    .result-card .tag { color: var(--cyan); font-size: .65rem; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; }
+    .result-card h3 { font-size: 1rem; margin: 7px 0 4px; }
+    .result-card p { font-size: .8rem; color: var(--muted); margin-bottom: 10px; }
+    .result-card a { font-size: .78rem; font-weight: 800; }
+    .section { padding: 62px 0; }
+    .section-head { max-width: 740px; margin-bottom: 26px; }
+    .section-head h2 { font-size: clamp(1.8rem, 4vw, 2.7rem); line-height: 1.2; margin-bottom: 12px; letter-spacing: -.025em; }
+    .section-head p { color: var(--muted); }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .profile-card { padding: clamp(20px, 4vw, 30px); }
+    .profile-card h3 { margin-bottom: 8px; }
+    .profile-card p, .card p { color: var(--muted); font-size: .9rem; }
+    .small-label { color: var(--cyan); text-transform: uppercase; font-size: .68rem; letter-spacing: .15em; font-weight: 900; }
+    .pill-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 17px; }
+    .pill { border: 1px solid #1a4962; border-radius: 999px; padding: 5px 10px; font-size: .74rem; color: #c4e8f5; background: rgba(4,22,37,.7); }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .card { min-height: 174px; transition: border-color .2s, transform .2s; }
+    .card:hover { border-color: #1c8cad; transform: translateY(-2px); }
+    .icon { display: inline-grid; place-items: center; width: 34px; height: 34px; margin-bottom: 13px; color: var(--cyan); border: 1px solid #1a6079; border-radius: 10px; background: rgba(0,217,255,.07); font-weight: 900; }
+    .card h3 { font-size: 1.02rem; margin-bottom: 6px; }
+    .card p { margin-bottom: 0; }
+    .credentials { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .credential { display: flex; gap: 13px; align-items: flex-start; }
+    .credential .icon { flex: 0 0 34px; }
+    .credential h3 { font-size: .93rem; margin: 0 0 4px; }
+    .credential p { margin: 0; font-size: .82rem; color: var(--muted); }
+    .notice { border-left: 3px solid var(--cyan); padding: 12px 16px; color: #a9bfd3; background: rgba(0,217,255,.045); border-radius: 0 10px 10px 0; font-size: .82rem; margin-top: 18px; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .contact-item { padding: 20px; border: 1px solid var(--line); background: #071626; border-radius: 13px; }
+    .contact-item span { display: block; color: var(--cyan); text-transform: uppercase; letter-spacing: .14em; font-size: .68rem; font-weight: 900; margin-bottom: 5px; }
+    .contact-item strong, .contact-item a { overflow-wrap: anywhere; }
+    footer { padding: 28px 0; border-top: 1px solid rgba(42,113,151,.25); color: #8fa5bb; font-size: .78rem; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .hidden { display: none !important; }
+    @media (max-width: 760px) {
+      .nav { min-height: 60px; }
+      .menu-toggle { display: inline-block; }
+      .navlinks { display: none; position: absolute; left: 0; right: 0; top: 60px; padding: 16px; background: #050e19; border-bottom: 1px solid var(--line); }
+      .navlinks.open { display: grid; grid-template-columns: 1fr 1fr; }
+      .hero { padding: 53px 0 34px; }
+      .search-results, .grid-3 { grid-template-columns: 1fr; }
+      .two-col, .credentials, .contact-grid { grid-template-columns: 1fr; }
+      .section { padding: 45px 0; }
+      .card { min-height: 0; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; } }
   </style>
 </head>
 <body>
-
-  <header>
-    <div class="container nav">
-      <div class="logo">Æ<span>TeCH</span></div>
-      <nav class="nav-links">
-        <a href="#about">About</a>
-        <a href="#companies">Companies</a>
-        <a href="#capabilities">AI Capabilities</a>
-        <a href="#advantages">Why Us</a>
+  <header class="topbar">
+    <div class="wrap nav">
+      <a class="brand" href="#home" aria-label="ÆTeCH home">ÆTeCH <span>LIMITED</span></a>
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-label="Toggle navigation">MENU ☰</button>
+      <nav class="navlinks" id="navLinks" aria-label="Main navigation">
+        <a href="#about">Company</a>
+        <a href="#services">Services</a>
+        <a href="#credentials">Credentials</a>
         <a href="#contact">Contact</a>
-        <a href="javascript:void(0)" class="btn" onclick="toggleChat()">AI Assistant</a>
       </nav>
     </div>
   </header>
 
-  <main>
-    <section class="hero">
-      <div class="container hero-grid">
-        <div>
-          <span class="eyebrow">Future-Ready Technology Portal</span>
-          <h1>Building Intelligent Systems for the Future of Business</h1>
-          <p>
-            ÆTeCH Limited Company and ÆTeCH Artificial Intelligence Software System Company deliver futuristic,
-            practical, and high-impact digital innovation. We create intelligent platforms, advanced AI systems,
-            and transformative solutions that help organizations operate smarter, faster, and more effectively.
-          </p>
-          <div class="hero-actions">
-            <a href="#companies" class="btn primary">Explore Our Companies</a>
-            <a href="#capabilities" class="btn">View AI Capabilities</a>
-            <a href="javascript:void(0)" class="btn" onclick="toggleChat()">Talk to AI Assistant</a>
-          </div>
-        </div>
+  <main id="home">
+    <section class="hero wrap">
+      <p class="eyebrow">Intelligence · Engineering · Security</p>
+      <h1>Technology that <span class="accent">thinks, builds</span> and protects.</h1>
+      <p class="lead">ÆTeCH Limited Company and ÆTeCH Artificial Intelligence Software System are building a technology-focused future through practical software, AI, data, cybersecurity and digital infrastructure solutions.</p>
+      <div class="actions">
+        <a class="btn primary" href="#services">Explore our services ↗</a>
+        <a class="btn" href="#contact">Connect with ÆTeCH</a>
+      </div>
+    </section>
 
-        <div class="hero-visual">
-          <div class="hud">
-            <div class="panel top">
-              <div>
-                <div style="color: var(--muted); font-size: 0.85rem;">System Status</div>
-                <div class="metric">Operational Intelligence Active</div>
-              </div>
-              <div>
-                <div style="color: var(--muted); font-size: 0.85rem;">Core Focus</div>
-                <div style="font-weight: bold;">Automation • AI Systems • Digital Innovation</div>
-              </div>
-            </div>
-
-            <div class="panel small left">
-              <div style="color: var(--muted); font-size: 0.8rem;">AI Capability</div>
-              <div class="metric">24/7</div>
-              <div style="font-size: 0.85rem;">Smart Client Assistance</div>
-            </div>
-
-            <div class="panel small right">
-              <div style="color: var(--muted); font-size: 0.8rem;">Strategic Value</div>
-              <div class="metric">360°</div>
-              <div style="font-size: 0.85rem;">Business Transformation View</div>
-            </div>
-          </div>
+    <section class="search-section wrap" aria-labelledby="searchHeading">
+      <div class="search-shell">
+        <p class="eyebrow">ÆTeCH Intelligence Interface</p>
+        <h2 class="search-title" id="searchHeading">Search the ÆTeCH ecosystem.</h2>
+        <p class="search-copy">Find services, credentials, technical capabilities and contact information instantly.</p>
+        <label class="searchbar" for="siteSearch">
+          <span class="glass" aria-hidden="true">⌕</span>
+          <input id="siteSearch" type="search" placeholder="Search ÆTeCH, AI, cybersecurity, credentials..." autocomplete="off">
+          <button type="button" id="clearSearch">CLEAR</button>
+        </label>
+        <p class="search-meta" id="searchMeta" aria-live="polite">Explore company information, services and technical interests.</p>
+        <div class="search-results" id="searchResults">
+          <article class="result-card searchable" data-search="profile alphonce kwaru founder technology professional">
+            <span class="tag">Profile</span><h3>Alphonce Kwaru</h3>
+            <p>Technology-focused founder developing multidisciplinary capability across AI, software, cybersecurity and IT support.</p>
+            <a href="#about">Explore profile →</a>
+          </article>
+          <article class="result-card searchable" data-search="services ai data cloud cybersecurity software remote support">
+            <span class="tag">Services</span><h3>Technology solutions</h3>
+            <p>Explore AI and data, cybersecurity, cloud solutions, systems, software and remote support.</p>
+            <a href="#services">View services →</a>
+          </article>
+          <article class="result-card searchable" data-search="credentials google cloud nvidia developer machine learning training">
+            <span class="tag">Credentials</span><h3>Learning & technical foundation</h3>
+            <p>Discover current areas of learning, developer communities and technical development.</p>
+            <a href="#credentials">View foundation →</a>
+          </article>
         </div>
       </div>
     </section>
 
-    <section id="about">
-      <div class="container">
-        <h2 class="section-title">Who We Are</h2>
-        <p class="section-subtitle">
-          ÆTeCH is a forward-thinking innovation company focused on advanced business technology,
-          intelligent systems, and practical artificial intelligence solutions that generate real value.
-          We do more than describe innovation — we engineer it into systems, services, and digital experiences.
-        </p>
-
-        <div class="grid-3">
-          <div class="card">
-            <div class="icon">⟡</div>
-            <h3>Innovation-Led Vision</h3>
-            <p>We build future-ready digital environments that reflect ambition, intelligence, and scalable growth.</p>
+    <section class="section wrap" id="about">
+      <div class="section-head">
+        <p class="eyebrow">ÆTeCH Limited</p>
+        <h2>Built for the next layer of technology.</h2>
+        <p>ÆTeCH Limited is positioned as a technology support and solutions brand focused on dependable assistance, secure systems, modern infrastructure and practical technology adoption.</p>
+      </div>
+      <div class="two-col">
+        <article class="card profile-card searchable" data-search="profile alphonce mwamachi kwaru founder artificial intelligence software engineering cybersecurity">
+          <p class="small-label">Professional profile</p>
+          <h3>Alphonce Mwamachi Kwaru</h3>
+          <p>Founder of ÆTeCH, building a multidisciplinary technical foundation across artificial intelligence, software development, cybersecurity, data and technology support.</p>
+          <p><strong>Focus:</strong> AI and machine learning · Software development · Cybersecurity · Cloud and networking · Data analytics · IT support.</p>
+          <div class="pill-row">
+            <span class="pill">AI & Machine Learning</span><span class="pill">Software</span>
+            <span class="pill">Cybersecurity</span><span class="pill">Data & Cloud</span>
           </div>
-          <div class="card">
-            <div class="icon">◉</div>
-            <h3>Practical Intelligence</h3>
-            <p>Our AI solutions are designed to solve real operational challenges and improve decision-making.</p>
-          </div>
-          <div class="card">
-            <div class="icon">⌁</div>
-            <h3>Premium Execution</h3>
-            <p>We combine strategy, design, software capability, and user engagement into one connected experience.</p>
-          </div>
-        </div>
+        </article>
+        <article class="card profile-card searchable" data-search="mission vision empower people optimize technology securing future slogan technology thinks builds protects">
+          <p class="small-label">Mission & direction</p>
+          <h3>Empowering people. Optimizing technology. Securing the future.</h3>
+          <p>Our direction is to develop useful, responsible and secure digital systems that help people and organizations solve real-world problems.</p>
+          <p><strong>Our principle:</strong> Technology that thinks. Builds. Protects.</p>
+          <a class="btn" href="#contact">Start a conversation ↗</a>
+        </article>
       </div>
     </section>
 
-    <section id="companies">
-      <div class="container">
-        <h2 class="section-title">Two Powerful Entities. One Intelligent Vision.</h2>
-        <p class="section-subtitle">
-          Our portal showcases both business strength and technological advancement through two focused arms of innovation.
-        </p>
+    <section class="section wrap" id="services">
+      <div class="section-head">
+        <p class="eyebrow">What we solve</p>
+        <h2>Technology, engineered around your needs.</h2>
+        <p>Practical technical support and digital infrastructure services for individuals, startups, professionals and growing organizations.</p>
+      </div>
+      <div class="grid-3">
+        <article class="card searchable" data-search="IT support help desk troubleshooting device configuration technical guidance">
+          <span class="icon">◉</span><h3>IT Support</h3><p>Help desk, troubleshooting, device configuration and technical guidance.</p>
+        </article>
+        <article class="card searchable" data-search="cloud solutions cloud setup deployment account configuration">
+          <span class="icon">⌁</span><h3>Cloud Solutions</h3><p>Cloud setup, deployment concepts, account configuration and practical cloud learning.</p>
+        </article>
+        <article class="card searchable" data-search="cybersecurity security awareness defensive practices data protection system hardening">
+          <span class="icon">◇</span><h3>Cybersecurity</h3><p>Security awareness, defensive practices, data protection and system hardening guidance.</p>
+        </article>
+        <article class="card searchable" data-search="systems software installation configuration maintenance technical support">
+          <span class="icon">▣</span><h3>Systems & Software</h3><p>Installation, configuration, maintenance and software development support.</p>
+        </article>
+        <article class="card searchable" data-search="remote support remote troubleshooting monitoring technical assistance">
+          <span class="icon">⌘</span><h3>Remote Support</h3><p>Remote troubleshooting, monitoring concepts and technical assistance.</p>
+        </article>
+        <article class="card searchable" data-search="AI data artificial intelligence machine learning data analytics learning solutions">
+          <span class="icon">⬡</span><h3>AI & Data</h3><p>AI/ML and data-oriented technology, learning, prototyping and solution exploration.</p>
+        </article>
+        <article class="card searchable" data-search="tech consulting technology guidance training digital problem solving practical recommendations">
+          <span class="icon">✦</span><h3>Tech Consulting</h3><p>Technology guidance, training, digital problem-solving and practical recommendations.</p>
+        </article>
+        <article class="card searchable" data-search="networking connectivity network setup digital infrastructure">
+          <span class="icon">⌁</span><h3>Networking</h3><p>Networking fundamentals, connectivity concepts and digital infrastructure guidance.</p>
+        </article>
+        <article class="card searchable" data-search="AI engineering machine learning software engineering future development">
+          <span class="icon">✧</span><h3>AI Engineering</h3><p>Exploration and development of AI-powered applications, automation and intelligent software systems.</p>
+        </article>
+      </div>
+    </section>
 
-        <div class="grid-2">
-          <div class="card">
-            <div class="icon">🏢</div>
-            <h3>ÆTeCH Limited Company</h3>
-            <p>
-              Focused on innovative business technology solutions, strategic development, high-value services,
-              and digital transformation models that improve efficiency, precision, and growth.
-            </p>
-            <div class="pathway">
-              <a href="#contact" class="pill">Business Solutions</a>
-              <a href="#advantages" class="pill">Value Proposition</a>
-              <a href="#capabilities" class="pill">Connected Innovation</a>
-            </div>
-          </div>
+    <section class="section wrap" id="credentials">
+      <div class="section-head">
+        <p class="eyebrow">Professional profile</p>
+        <h2>Credentials & technical foundation.</h2>
+        <p>A developing portfolio of training, hands-on learning and developer community participation.</p>
+      </div>
+      <div class="credentials">
+        <article class="card credential searchable" data-search="artificial intelligence machine learning engineering training course">
+          <span class="icon">AI</span><div><h3>Artificial Intelligence & Machine Learning</h3><p>Ongoing engineering-focused learning in AI/ML concepts and practical applications.</p></div>
+        </article>
+        <article class="card credential searchable" data-search="google cloud developer program cloud AI Gemini Vertex BigQuery">
+          <span class="icon">G</span><div><h3>Google Developer Program & Google Cloud learning</h3><p>Hands-on learning across cloud, Gemini, AI agents, data workflows and developer labs.</p></div>
+        </article>
+        <article class="card credential searchable" data-search="NVIDIA developer program member AI computing community">
+          <span class="icon">N</span><div><h3>NVIDIA Developer Program</h3><p>Developer community participation and exploration of AI and accelerated computing technologies.</p></div>
+        </article>
+        <article class="card credential searchable" data-search="cybersecurity data protection Cisco IBM AWS Microsoft training">
+          <span class="icon">SEC</span><div><h3>Cybersecurity & data protection learning</h3><p>Training and study in security awareness, cloud security, cybersecurity fundamentals and data protection.</p></div>
+        </article>
+      </div>
+      <p class="notice">Transparency note: This page describes ongoing learning and areas of focus. Add only verified certificates, completed qualifications and official membership links when publishing credential claims.</p>
+    </section>
 
-          <div class="card">
-            <div class="icon">🤖</div>
-            <h3>ÆTeCH Artificial Intelligence Software System Company</h3>
-            <p>
-              Dedicated to advanced AI software systems that automate operations, su
+    <section class="section wrap" id="contact">
+      <div class="section-head">
+        <p class="eyebrow">Connect</p>
+        <h2>Let’s build something reliable.</h2>
+        <p>For technology discussions, service enquiries and professional collaboration, use the contact details below.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-item"><span>Phone</span><strong><a href="tel:+254795963615">+254 795 963 615</a></strong></div>
+        <div class="contact-item"><span>Email</span><strong><a href="mailto:mwamachikwaru@gmail.com">mwamachikwaru@gmail.com</a></strong></div>
+        <div class="contact-item"><span>Location</span><strong>Mombasa, Kenya</strong><p style="margin:5px 0 0;color:var(--muted);font-size:.82rem">Remote collaboration and digital support where appropriate.</p></div>
+        <div class="contact-item"><span>Website & project links</span><strong><a href="https://github.com/alphoncek" target="_blank" rel="noopener noreferrer">GitHub · alphoncek ↗</a></strong><p style="margin:5px 0 0;color:var(--muted);font-size:.82rem">Replace or supplement with your official company website and verified project URLs.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <span>© <span id="year"></span> ÆTeCH Limited Company. All rights reserved.</span>
+      <span>Technology that thinks. Builds. Protects.</span>
+    </div>
+  </footer>
+
+ 
